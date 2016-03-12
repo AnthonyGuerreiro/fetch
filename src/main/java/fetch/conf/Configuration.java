@@ -13,17 +13,13 @@ public class Configuration {
 
     private Properties properties = new Properties();
     private static Configuration instance = new Configuration();
-    private static Logger logger;
-
-    static {
-        logger = LogManager.getLogger(Configuration.class);
-    }
+    private static Logger logger = LogManager.getLogger(Configuration.class);
 
     public String get(String key) {
         return get(key, null);
     }
 
-    private String get(String key, String defaultValue) {
+    public String get(String key, String defaultValue) {
         String value = properties.getProperty(key);
         if (value != null) {
             return value;

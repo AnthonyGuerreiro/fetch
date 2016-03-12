@@ -1,11 +1,15 @@
 package fetch.task;
 
+import fetch.exception.ConfigurationException;
+
 public interface Task {
 
     /**
      * Executes task.
+     * 
+     * @throws ConfigurationException
      */
-    void execute();
+    void execute() throws ConfigurationException;
 
     /**
      * Returns order. <br />
