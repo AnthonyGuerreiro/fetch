@@ -1,7 +1,7 @@
 package fetch.conf;
 
 public enum ConfigurationKey {
-    PROFILE_FILE("profile.file", "profiles.xml");
+    PROFILES_FILE("profiles.file", "profiles.xml");
 
     private String property;
     private String defaultValue;

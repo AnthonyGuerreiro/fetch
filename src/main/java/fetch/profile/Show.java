@@ -1,5 +1,18 @@
 package fetch.profile;
 
-public class Show {
+public class Show extends AbstractNode {
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setValue(String value) {
+        setName(value);
+    }
 }

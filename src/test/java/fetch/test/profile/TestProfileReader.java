@@ -7,17 +7,17 @@ import java.util.Set;
 import org.junit.Test;
 
 import fetch.plugin.PluginLoader;
-import fetch.profile.reader.ProfileReader;
+import fetch.profile.reader.ProfilesReader;
 
 public class TestProfileReader {
 
-    private Set<ProfileReader> loadProfileReaders() {
-        return new PluginLoader().load(ProfileReader.class);
+    private Set<ProfilesReader> loadProfileReaders() {
+        return new PluginLoader().load(ProfilesReader.class);
     }
 
     @Test
     public void testLoadProfileReader() {
-        Set<ProfileReader> profileReaders = loadProfileReaders();
+        Set<ProfilesReader> profileReaders = loadProfileReaders();
         assertEquals(1, profileReaders.size());
     }
 }
