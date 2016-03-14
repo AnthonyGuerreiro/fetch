@@ -1,7 +1,6 @@
 package fetch.task.reader;
 
 import java.util.List;
-import java.util.Set;
 
 import fetch.conf.Configuration;
 import fetch.conf.ConfigurationKey;
@@ -22,10 +21,11 @@ public class Reader implements Task {
 
         ConfigurationKey key = ConfigurationKey.PROFILES_FILE;
 
-        String filename = Configuration.getInstance().get(key.getProperty(), key.getDefaultValue());
-        Set<ProfilesReader> profileReaders = new PluginLoader().load(ProfilesReader.class);
-        // TODO enforce only one reader
-        return profileReaders.iterator().next().getProfiles(filename);
+        String filename = Configuration.getInstance().get(key.getProperty(),
+                key.getDefaultValue());
+        ProfilesReader profilesReaders = new PluginLoader()
+                .loadSingle(ProfilesReader.class);
+        return profilesReaders.getProfiles(filename);
     }
 
     @Override
