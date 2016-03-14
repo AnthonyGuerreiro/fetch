@@ -13,8 +13,20 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>nl.stil4m</groupId>
+            <artifactId>transmission-rpc-java</artifactId>
+            <version>0.5.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
+    <repositories>
+        <repository>
+            <id>stil4m-releases</id>
+            <name>stil4m-releases</name>
+            <url>https://github.com/stil4m/maven-repository/raw/master/releases/</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
