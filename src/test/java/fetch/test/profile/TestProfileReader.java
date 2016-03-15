@@ -7,7 +7,7 @@ import java.util.Set;
 import org.junit.Test;
 
 import fetch.plugin.PluginLoader;
-import fetch.profile.reader.ProfilesReader;
+import fetch.task.reader.ProfilesReader;
 
 public class TestProfileReader {
 

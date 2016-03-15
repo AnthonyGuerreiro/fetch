@@ -1,10 +1,10 @@
-package fetch.profile.reader.xml.node;
+package fetch.task.reader.node.parser;
 
 import java.util.Optional;
 
 import org.xml.sax.Attributes;
 
-import fetch.profile.ProfileNode;
+import fetch.task.reader.node.ProfileNode;
 
 public class XMLGenericNodeParser implements XMLNodeParser {
 

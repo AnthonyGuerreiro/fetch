@@ -8,10 +8,10 @@ import org.junit.Test;
 
 import fetch.conf.ConfigurationKey;
 import fetch.exception.ConfigurationException;
-import fetch.profile.Profile;
-import fetch.profile.Show;
-import fetch.profile.reader.ProfilesReader;
-import fetch.profile.reader.xml.XMLProfilesReader;
+import fetch.task.reader.ProfilesReader;
+import fetch.task.reader.node.Profile;
+import fetch.task.reader.node.Show;
+import fetch.task.reader.xml.XMLProfilesReader;
 
 public class TestXMLProfilesReader {
 

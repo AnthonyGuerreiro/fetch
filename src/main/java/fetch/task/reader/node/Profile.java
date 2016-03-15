@@ -1,4 +1,4 @@
-package fetch.profile;
+package fetch.task.reader.node;
 
 import java.util.ArrayList;
 import java.util.List;

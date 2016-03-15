@@ -1,4 +1,4 @@
-package fetch.profile.reader.xml;
+package fetch.task.reader.xml;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,10 +16,10 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import fetch.exception.ConfigurationException;
-import fetch.profile.Profile;
-import fetch.profile.ProfileNode;
-import fetch.profile.reader.ProfilesReader;
-import fetch.profile.reader.xml.node.XMLNodeParser;
+import fetch.task.reader.ProfilesReader;
+import fetch.task.reader.node.Profile;
+import fetch.task.reader.node.ProfileNode;
+import fetch.task.reader.node.parser.XMLNodeParser;
 
 public class XMLProfilesReader extends DefaultHandler implements ProfilesReader {
 

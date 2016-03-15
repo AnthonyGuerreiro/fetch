@@ -6,9 +6,8 @@ import fetch.conf.Configuration;
 import fetch.conf.ConfigurationKey;
 import fetch.exception.ConfigurationException;
 import fetch.plugin.PluginLoader;
-import fetch.profile.Profile;
-import fetch.profile.reader.ProfilesReader;
 import fetch.task.Task;
+import fetch.task.reader.node.Profile;
 
 public class Reader implements Task {
 

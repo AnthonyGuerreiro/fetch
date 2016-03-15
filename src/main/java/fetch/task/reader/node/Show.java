@@ -1,4 +1,4 @@
-package fetch.profile;
+package fetch.task.reader.node;
 
 public class Show extends AbstractNode {
     private String name;
