@@ -27,6 +27,21 @@ public class Configuration {
         return defaultValue;
     }
 
+    public int get(String key, int defaultValue) {
+        String value = properties.getProperty(key);
+        if (value == null) {
+            return defaultValue;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            String msg = "Configuration error: expected int value for key " + key
+                    + ". Using default value " + defaultValue + " instead.";
+            logger.info(msg);
+            return defaultValue;
+        }
+    }
+
     public static Configuration getInstance() {
         return instance;
     }

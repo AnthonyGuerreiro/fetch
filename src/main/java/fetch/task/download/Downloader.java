@@ -8,11 +8,11 @@ public class Downloader implements Task {
 
     @Override
     public void execute() throws ConfigurationException {
-        RPCDownloader downloader = getDownloader();
+        DownloadManager downloader = getDownloader();
     }
 
-    public RPCDownloader getDownloader() throws ConfigurationException {
-        return new PluginLoader().loadSingle(RPCDownloader.class);
+    public DownloadManager getDownloader() throws ConfigurationException {
+        return new PluginLoader().loadSingle(DownloadManager.class);
     }
 
     @Override

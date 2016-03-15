@@ -7,18 +7,18 @@ import java.util.Set;
 import org.junit.Test;
 
 import fetch.plugin.PluginLoader;
-import fetch.task.download.RPCDownloader;
+import fetch.task.download.DownloadManager;
 
 public class TestDownloader {
 
-    private Set<RPCDownloader> loadDownloaders() {
-        return new PluginLoader().load(RPCDownloader.class);
+    private Set<DownloadManager> loadDownloaders() {
+        return new PluginLoader().load(DownloadManager.class);
     }
 
     @Test
     public void testLoadDownloader() {
 
-        Set<RPCDownloader> downloaders = loadDownloaders();
+        Set<DownloadManager> downloaders = loadDownloaders();
         assertEquals(1, downloaders.size());
     }
 }
