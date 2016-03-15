@@ -6,18 +6,18 @@ import fetch.task.Task;
 
 public class Downloader implements Task {
 
-    @Override
-    public void execute() throws ConfigurationException {
-        DownloadManager downloader = getDownloader();
-    }
+	@Override
+	public void execute() throws ConfigurationException {
+		DownloadManager downloader = getDownloader();
+	}
 
-    public DownloadManager getDownloader() throws ConfigurationException {
-        return new PluginLoader().loadSingle(DownloadManager.class);
-    }
+	public DownloadManager getDownloader() throws ConfigurationException {
+		return new PluginLoader().loadSingle(DownloadManager.class);
+	}
 
-    @Override
-    public int getOrder() {
-        return 200;
-    }
+	@Override
+	public int getOrder() {
+		return 300;
+	}
 
 }
