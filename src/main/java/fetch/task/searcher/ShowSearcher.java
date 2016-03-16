@@ -3,7 +3,7 @@ package fetch.task.searcher;
 import fetch.exception.ConfigurationException;
 import fetch.task.Task;
 
-public class Searcher implements Task {
+public class ShowSearcher implements Task {
 
     @Override
     public void execute() throws ConfigurationException {
