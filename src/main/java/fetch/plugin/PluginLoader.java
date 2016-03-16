@@ -1,26 +1,33 @@
 package fetch.plugin;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ServiceLoader;
-import java.util.Set;
 
 import fetch.exception.ConfigurationException;
 
 public class PluginLoader {
 
-    public <T> Set<T> load(Class<T> type) {
+    public <T> List<T> load(Class<T> type) {
 
         ServiceLoader<T> loader = ServiceLoader.load(type);
-        Set<T> instances = new HashSet<>();
+        List<T> instances = new ArrayList<>();
         for (T instance : loader) {
             instances.add(instance);
+        }
+        if (HasOrder.class.isAssignableFrom(type)) {
+            sort((List<HasOrder>) instances);
         }
         return instances;
     }
 
+    private void sort(List<? extends HasOrder> instances) {
+        instances.sort((t1, t2) -> t1.getOrder() - t2.getOrder());
+    }
+
     public <T> T loadSingle(Class<T> type) throws ConfigurationException {
 
-        Set<T> instances = load(type);
+        List<T> instances = load(type);
         if (instances.size() == 1) {
             return instances.iterator().next();
         }

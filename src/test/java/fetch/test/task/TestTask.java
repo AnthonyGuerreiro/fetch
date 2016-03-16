@@ -7,20 +7,24 @@ import java.util.List;
 
 import org.junit.Test;
 
+import fetch.plugin.PluginLoader;
 import fetch.task.Task;
-import fetch.task.TaskLoader;
 import fetch.task.download.Downloader;
 import fetch.task.reader.Reader;
 import fetch.task.searcher.ShowSearcher;
 
 public class TestTask {
 
-	@Test
-	public void testLoadTasks() {
-		List<Task> tasks = new TaskLoader().getTasks();
-		assertEquals(3, tasks.size());
-		assertTrue(tasks.get(0) instanceof Reader);
-		assertTrue(tasks.get(1) instanceof ShowSearcher);
-		assertTrue(tasks.get(2) instanceof Downloader);
-	}
+    private List<Task> getTasks() {
+        return new PluginLoader().load(Task.class);
+    }
+
+    @Test
+    public void testLoadTasks() {
+        List<Task> tasks = getTasks();
+        assertEquals(3, tasks.size());
+        assertTrue(tasks.get(0) instanceof Reader);
+        assertTrue(tasks.get(1) instanceof ShowSearcher);
+        assertTrue(tasks.get(2) instanceof Downloader);
+    }
 }

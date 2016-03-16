@@ -2,7 +2,7 @@ package fetch.test.profile;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -11,13 +11,13 @@ import fetch.task.reader.ProfilesReader;
 
 public class TestProfileReader {
 
-    private Set<ProfilesReader> loadProfileReaders() {
+    private List<ProfilesReader> loadProfileReaders() {
         return new PluginLoader().load(ProfilesReader.class);
     }
 
     @Test
     public void testLoadProfileReader() {
-        Set<ProfilesReader> profileReaders = loadProfileReaders();
+        List<ProfilesReader> profileReaders = loadProfileReaders();
         assertEquals(1, profileReaders.size());
     }
 }

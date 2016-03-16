@@ -2,7 +2,7 @@ package fetch.test.task.download;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -11,14 +11,14 @@ import fetch.task.download.DownloadManager;
 
 public class TestDownloader {
 
-    private Set<DownloadManager> loadDownloaders() {
+    private List<DownloadManager> loadDownloaders() {
         return new PluginLoader().load(DownloadManager.class);
     }
 
     @Test
     public void testLoadDownloader() {
 
-        Set<DownloadManager> downloaders = loadDownloaders();
+        List<DownloadManager> downloaders = loadDownloaders();
         assertEquals(1, downloaders.size());
     }
 }
