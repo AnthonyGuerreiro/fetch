@@ -1,3 +1,4 @@
 fetch.task.reader.Reader # reader (reads profiles)
 fetch.task.searcher.ShowSearcher # (searches files online)
+fetch.task.filter.ShowFilter # (filters which file should be downloaded)
 fetch.task.download.Downloader # (downloads files)
