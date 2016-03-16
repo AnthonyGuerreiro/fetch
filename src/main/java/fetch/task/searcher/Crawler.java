@@ -1,5 +1,9 @@
 package fetch.task.searcher;
 
-public interface Crawler {
+import java.util.List;
 
+import fetch.exception.FetchException;
+
+public interface Crawler {
+    List<Entry> getEntries(String url) throws FetchException;
 }
