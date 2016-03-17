@@ -1,4 +1,7 @@
 fetch.task.reader.Reader # reader (reads profiles)
 fetch.task.searcher.ShowSearcher # (searches files online)
+# (splits files found per episode)
 fetch.task.filter.ShowFilter # (filters which file should be downloaded)
 fetch.task.download.Downloader # (downloads files)
+# (searches subtitles)
+# (downloads subtitles)
