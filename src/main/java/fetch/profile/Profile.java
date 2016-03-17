@@ -1,4 +1,4 @@
-package fetch.task.reader.node;
+package fetch.profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +25,9 @@ public class Profile extends AbstractNode {
     }
 
     @Override
-    public Optional<ProfileNode> appendShow(Show show) {
+    public Optional<ProfileNode> append(Show show) {
         shows.add(show);
         return Optional.of(show);
     }
+
 }

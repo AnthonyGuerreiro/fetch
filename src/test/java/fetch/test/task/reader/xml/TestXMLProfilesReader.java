@@ -1,4 +1,4 @@
-package fetch.test.profile.reader.xml;
+package fetch.test.task.reader.xml;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,9 +8,9 @@ import org.junit.Test;
 
 import fetch.conf.ConfigurationKey;
 import fetch.exception.ConfigurationException;
+import fetch.profile.Profile;
+import fetch.profile.Show;
 import fetch.task.reader.ProfilesReader;
-import fetch.task.reader.node.Profile;
-import fetch.task.reader.node.Show;
 import fetch.task.reader.xml.XMLProfilesReader;
 
 public class TestXMLProfilesReader {
@@ -46,6 +46,8 @@ public class TestXMLProfilesReader {
         assertEquals("The Big Bang Theory", tvShows.get(0).getName());
         assertEquals("The Mentalist", tvShows.get(1).getName());
 
+        assertEquals(tvShowsProfile, tvShows.get(0).getParent());
+        assertEquals(tvShowsProfile, tvShows.get(1).getParent());
     }
 
     @Test
@@ -57,5 +59,8 @@ public class TestXMLProfilesReader {
 
         assertEquals("Log Horizon", anime.get(0).getName());
         assertEquals("Another", anime.get(1).getName());
+
+        assertEquals(animeProfile, anime.get(0).getParent());
+        assertEquals(animeProfile, anime.get(1).getParent());
     }
 }

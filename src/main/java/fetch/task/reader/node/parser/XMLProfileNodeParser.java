@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.xml.sax.Attributes;
 
-import fetch.task.reader.node.Profile;
-import fetch.task.reader.node.ProfileNode;
+import fetch.profile.Profile;
+import fetch.profile.ProfileNode;
 
 public class XMLProfileNodeParser implements XMLNodeParser {
 

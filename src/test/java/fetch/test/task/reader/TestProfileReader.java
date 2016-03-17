@@ -1,4 +1,4 @@
-package fetch.test.profile;
+package fetch.test.task.reader;
 
 import static org.junit.Assert.assertEquals;
 

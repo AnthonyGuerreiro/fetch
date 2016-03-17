@@ -1,4 +1,4 @@
-package fetch.task.reader.node;
+package fetch.profile;
 
 public class Show extends AbstractNode {
     private String name;
@@ -15,4 +15,5 @@ public class Show extends AbstractNode {
     public void setValue(String value) {
         setName(value);
     }
+
 }

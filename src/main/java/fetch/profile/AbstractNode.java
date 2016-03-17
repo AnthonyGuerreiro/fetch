@@ -1,4 +1,4 @@
-package fetch.task.reader.node;
+package fetch.profile;
 
 import java.util.Optional;
 
@@ -11,15 +11,27 @@ public abstract class AbstractNode implements ProfileNode {
 
     private final static Logger logger = LogManager.getLogger(AbstractNode.class);
 
+    private ProfileNode parent;
+
     @Override
-    public Optional<ProfileNode> appendProfile(Profile profile) {
+    public ProfileNode getParent() {
+        return parent;
+    }
+
+    @Override
+    public void setParent(ProfileNode parent) {
+        this.parent = parent;
+    }
+
+    @Override
+    public Optional<ProfileNode> append(Profile profile) {
 
         logError(Profile.class);
         return Optional.empty();
     }
 
     @Override
-    public Optional<ProfileNode> appendShow(Show show) {
+    public Optional<ProfileNode> append(Show show) {
 
         logError(Show.class);
         return Optional.empty();

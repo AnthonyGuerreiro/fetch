@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.xml.sax.Attributes;
 
-import fetch.task.reader.node.ProfileNode;
-import fetch.task.reader.node.Show;
+import fetch.profile.ProfileNode;
+import fetch.profile.Show;
 
 public class XMLShowNodeParser implements XMLNodeParser {
 
@@ -20,7 +20,8 @@ public class XMLShowNodeParser implements XMLNodeParser {
         Show show = new Show();
 
         ProfileNode node = previous.get();
-        node.appendShow(show);
+        node.append(show);
+        show.setParent(node);
         return Optional.of(show);
     }
 

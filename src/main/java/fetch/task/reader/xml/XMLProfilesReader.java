@@ -16,9 +16,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import fetch.exception.ConfigurationException;
+import fetch.profile.Profile;
+import fetch.profile.ProfileNode;
 import fetch.task.reader.ProfilesReader;
-import fetch.task.reader.node.Profile;
-import fetch.task.reader.node.ProfileNode;
 import fetch.task.reader.node.parser.XMLNodeParser;
 
 public class XMLProfilesReader extends DefaultHandler implements ProfilesReader {
