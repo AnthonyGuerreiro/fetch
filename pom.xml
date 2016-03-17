@@ -13,26 +13,39 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        
+
         <!-- RSS Parser -->
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome</artifactId>
             <version>1.5.1</version>
         </dependency>
-        
+
         <!-- Levenshtein distance and Cosine similarity metrics -->
         <dependency>
             <groupId>com.github.mpkorstanje</groupId>
             <artifactId>simmetrics-core</artifactId>
             <version>4.1.0</version>
         </dependency>
-        
+
+        <!-- Transmission RPC API -->
         <dependency>
             <groupId>nl.stil4m</groupId>
             <artifactId>transmission-rpc-java</artifactId>
             <version>0.5.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.0-rc1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.0-rc1</version>
         </dependency>
     </dependencies>
     <repositories>

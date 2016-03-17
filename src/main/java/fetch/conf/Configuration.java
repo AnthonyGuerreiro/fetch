@@ -37,7 +37,7 @@ public class Configuration {
         } catch (NumberFormatException e) {
             String msg = "Configuration error: expected int value for key " + key
                     + ". Using default value " + defaultValue + " instead.";
-            logger.info(msg);
+            logger.warn(msg);
             return defaultValue;
         }
     }
@@ -56,11 +56,7 @@ public class Configuration {
                     .getResourceAsStream(CONFIGURATION_FILE);
             properties.load(is);
         } catch (IOException e) {
-            if (logger != null) {
-                logger.info(e);
-            } else {
-                e.printStackTrace();
-            }
+            logger.error(e);
         }
     }
 }

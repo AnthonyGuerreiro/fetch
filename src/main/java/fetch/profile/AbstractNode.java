@@ -26,14 +26,14 @@ public abstract class AbstractNode implements ProfileNode {
     @Override
     public Optional<ProfileNode> append(Profile profile) {
 
-        logError(Profile.class);
+        log(Profile.class);
         return Optional.empty();
     }
 
     @Override
     public Optional<ProfileNode> append(Show show) {
 
-        logError(Show.class);
+        log(Show.class);
         return Optional.empty();
     }
 
@@ -42,9 +42,9 @@ public abstract class AbstractNode implements ProfileNode {
         // nop
     }
 
-    private void logError(Class<?> klass) {
+    private void log(Class<?> klass) {
         String log = String.format(template, klass.getSimpleName(),
                 getClass().getSimpleName());
-        logger.info(log);
+        logger.warn(log);
     }
 }
