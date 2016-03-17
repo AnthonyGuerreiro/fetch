@@ -16,14 +16,17 @@ public class Reader implements Task {
         List<Profile> profiles = getProfiles();
     }
 
+    public ProfilesReader getProfilesReader() throws ConfigurationException {
+        return new PluginLoader().loadSingle(ProfilesReader.class);
+    }
+
     private List<Profile> getProfiles() throws ConfigurationException {
 
         ConfigurationKey key = ConfigurationKey.PROFILES_FILE;
 
         String filename = Configuration.getInstance().get(key.getProperty(),
                 key.getDefaultValue());
-        ProfilesReader profilesReaders = new PluginLoader()
-                .loadSingle(ProfilesReader.class);
+        ProfilesReader profilesReaders = getProfilesReader();
         return profilesReaders.getProfiles(filename);
     }
 
