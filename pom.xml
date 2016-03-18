@@ -5,12 +5,20 @@
     <artifactId>fetch</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>fetch</name>
+    
+    <properties>
+        <junit.version>4.12</junit.version>
+        <rome.version>1.5.1</rome.version>
+        <simmetrics.version>4.1.0</simmetrics.version>
+        <transmission.rpc.version>0.5.0</transmission.rpc.version>
+        <log4j.version>2.5</log4j.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -18,34 +26,33 @@
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome</artifactId>
-            <version>1.5.1</version>
+            <version>${rome.version}</version>
         </dependency>
 
         <!-- Levenshtein distance and Cosine similarity metrics -->
         <dependency>
             <groupId>com.github.mpkorstanje</groupId>
             <artifactId>simmetrics-core</artifactId>
-            <version>4.1.0</version>
+            <version>${simmetrics.version}</version>
         </dependency>
 
         <!-- Transmission RPC API -->
         <dependency>
             <groupId>nl.stil4m</groupId>
             <artifactId>transmission-rpc-java</artifactId>
-            <version>0.5.0</version>
-            <scope>test</scope>
+            <version>${transmission.rpc.version}</version>
         </dependency>
 
         <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.0-rc1</version>
+            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.0-rc1</version>
+            <version>${log4j.version}</version>
         </dependency>
     </dependencies>
     <repositories>
