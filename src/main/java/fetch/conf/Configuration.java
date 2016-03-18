@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import fetch.exception.FetchRuntimeException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
 
@@ -45,6 +46,7 @@ public class Configuration {
         } catch (IOException e) {
             String msg = "Failed to read " + CONFIGURATION_FILE;
             logger.error(msg, e);
+            throw new FetchRuntimeException(msg, e);
         }
     }
 }

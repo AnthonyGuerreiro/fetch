@@ -17,7 +17,7 @@ import fetch.task.searcher.ShowSearcher;
 public class TestTask {
 
     private List<Task> getTasks() {
-        return new PluginLoader().load(Task.class);
+        return PluginLoader.getInstance().getPlugins(Task.class);
     }
 
     @Test

@@ -12,7 +12,7 @@ public class Downloader implements Task {
     }
 
     public DownloadManager getDownloader() throws ConfigurationException {
-        return new PluginLoader().loadSingle(DownloadManager.class);
+        return PluginLoader.getInstance().getPlugin(DownloadManager.class);
     }
 
     @Override

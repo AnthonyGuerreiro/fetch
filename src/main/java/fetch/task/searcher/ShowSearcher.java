@@ -14,7 +14,7 @@ public class ShowSearcher implements Task {
     }
 
     public List<Crawler> getCrawlers() {
-        return new PluginLoader().load(Crawler.class);
+        return PluginLoader.getInstance().getPlugins(Crawler.class);
     }
 
     @Override

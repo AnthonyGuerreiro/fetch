@@ -16,7 +16,7 @@ public class Reader implements Task {
     }
 
     public ProfilesReader getProfilesReader() throws ConfigurationException {
-        return new PluginLoader().loadSingle(ProfilesReader.class);
+        return PluginLoader.getInstance().getPlugin(ProfilesReader.class);
     }
 
     private List<Profile> getProfiles() throws ConfigurationException {

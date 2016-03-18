@@ -1,3 +1,10 @@
 {
-	"profiles.file" : "test.profiles.xml"
+	"profiles.file" : "test.profiles.xml",
+	"listable.interfaces" : [
+		"fetch.task.download.DownloadManager",
+		"fetch.task.filter.Filter",
+		"fetch.task.reader.ProfilesReader",
+		"fetch.task.searcher.Crawler",
+		"fetch.task.Task"
+	]
 }

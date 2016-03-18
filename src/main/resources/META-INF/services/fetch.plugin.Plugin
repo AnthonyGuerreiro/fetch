@@ -1,3 +1,4 @@
+# Tasks
 fetch.task.reader.Reader # reader (reads profiles)
 fetch.task.searcher.ShowSearcher # (searches files online)
 # (splits files found per episode)
@@ -5,3 +6,15 @@ fetch.task.filter.ShowFilter # (filters which file should be downloaded)
 fetch.task.download.Downloader # (downloads files)
 # (searches subtitles)
 # (downloads subtitles)
+
+# Crawlers
+fetch.task.searcher.rss.RssCrawler
+
+# Filters
+fetch.task.filter.CosineSimilarityFilter
+
+# Download manager
+fetch.task.download.rpc.TransmissionManager
+
+#Profile reader
+fetch.task.reader.xml.XMLProfilesReader

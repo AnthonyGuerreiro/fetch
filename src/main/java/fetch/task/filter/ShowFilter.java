@@ -27,7 +27,7 @@ public class ShowFilter implements Task {
     }
 
     public List<Filter> getFilters() {
-        return new PluginLoader().load(Filter.class);
+        return PluginLoader.getInstance().getPlugins(Filter.class);
     }
 
     @Override
