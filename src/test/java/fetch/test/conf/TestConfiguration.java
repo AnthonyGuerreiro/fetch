@@ -1,19 +1,19 @@
 package fetch.test.conf;
 
-import static fetch.conf.ConfigurationKey.PROFILES_FILE;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fetch.conf.Configuration;;
+import fetch.conf.Configuration;
+import fetch.conf.ConfigurationMap;;
 
 public class TestConfiguration {
 
+    private ConfigurationMap defaultMap = new ConfigurationMap();
+
     @Test
     public void testReadProfileFile() {
-        Configuration conf = Configuration.getInstance();
-        String profileFile = conf.get(PROFILES_FILE.getProperty());
-        assertNotNull("Could not find property " + PROFILES_FILE.getProperty()
-                + " on default configuration", profileFile);
+        ConfigurationMap map = Configuration.getInstance().getMap();
+        assertEquals("test.profiles.xml", map.getProfilesFile());
     }
 }

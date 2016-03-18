@@ -5,13 +5,16 @@
     <artifactId>fetch</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>fetch</name>
-    
+
     <properties>
         <junit.version>4.12</junit.version>
         <rome.version>1.5.1</rome.version>
         <simmetrics.version>4.1.0</simmetrics.version>
         <transmission.rpc.version>0.5.0</transmission.rpc.version>
         <log4j.version>2.5</log4j.version>
+
+        <!-- Also used by transmission-rpc-java -->
+        <jackson.version>2.2.3</jackson.version>
     </properties>
 
     <dependencies>
@@ -41,6 +44,18 @@
             <groupId>nl.stil4m</groupId>
             <artifactId>transmission-rpc-java</artifactId>
             <version>${transmission.rpc.version}</version>
+        </dependency>
+
+        <!-- JSON. Also used by transmission-rpc-java -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <!-- Logging -->

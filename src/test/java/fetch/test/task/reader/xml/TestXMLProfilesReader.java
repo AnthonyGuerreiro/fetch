@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import fetch.conf.ConfigurationKey;
+import fetch.conf.Configuration;
 import fetch.exception.ConfigurationException;
 import fetch.profile.Profile;
 import fetch.profile.Show;
@@ -16,7 +16,7 @@ import fetch.task.reader.xml.XMLProfilesReader;
 public class TestXMLProfilesReader {
 
     private List<Profile> getProfiles() throws ConfigurationException {
-        return getProfiles(ConfigurationKey.PROFILES_FILE.getDefaultValue());
+        return getProfiles(Configuration.getInstance().getMap().getProfilesFile());
     }
 
     private List<Profile> getProfiles(String filename) throws ConfigurationException {

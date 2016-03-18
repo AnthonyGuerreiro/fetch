@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<profiles>
+    <profile name="tv shows">
+        <shows>
+            <show>The Big Bang Theory</show>
+            <show>The Mentalist</show>
+        </shows>
+    </profile>
+
+    <profile name="anime">
+        <shows>
+            <show>Log Horizon</show>
+            <show>Another</show>
+        </shows>
+    </profile>
+</profiles>

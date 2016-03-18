@@ -3,7 +3,6 @@ package fetch.task.reader;
 import java.util.List;
 
 import fetch.conf.Configuration;
-import fetch.conf.ConfigurationKey;
 import fetch.exception.ConfigurationException;
 import fetch.plugin.PluginLoader;
 import fetch.profile.Profile;
@@ -22,10 +21,7 @@ public class Reader implements Task {
 
     private List<Profile> getProfiles() throws ConfigurationException {
 
-        ConfigurationKey key = ConfigurationKey.PROFILES_FILE;
-
-        String filename = Configuration.getInstance().get(key.getProperty(),
-                key.getDefaultValue());
+        String filename = Configuration.getInstance().getMap().getProfilesFile();
         ProfilesReader profilesReaders = getProfilesReader();
         return profilesReaders.getProfiles(filename);
     }
