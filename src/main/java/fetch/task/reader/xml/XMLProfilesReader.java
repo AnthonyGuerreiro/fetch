@@ -19,7 +19,7 @@ import fetch.exception.ConfigurationException;
 import fetch.profile.Profile;
 import fetch.profile.ProfileNode;
 import fetch.task.reader.ProfilesReader;
-import fetch.task.reader.node.parser.XMLNodeParser;
+import fetch.task.reader.xml.node.parser.XMLNodeParser;
 
 public class XMLProfilesReader extends DefaultHandler implements ProfilesReader {
 

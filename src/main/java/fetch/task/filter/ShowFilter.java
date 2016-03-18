@@ -10,19 +10,11 @@ import fetch.task.Task;
 
 public class ShowFilter implements Task {
 
-    public static void main(String[] args) {
-        Logger logger = LogManager.getLogger(ShowFilter.class);
-        logger.trace("test");
-        logger.debug("test");
-
-        logger.info("test");
-        logger.warn("test");
-        logger.error("test");
-        logger.fatal("test");
-    }
+    private final static Logger logger = LogManager.getLogger(ShowFilter.class);
 
     @Override
     public void execute() throws ConfigurationException {
+        logger.info("Starting task " + getClass().getSimpleName());
         List<Filter> filters = getFilters();
     }
 

@@ -1,9 +1,9 @@
 package fetch.task.reader.xml;
 
-import fetch.task.reader.node.parser.XMLGenericNodeParser;
-import fetch.task.reader.node.parser.XMLNodeParser;
-import fetch.task.reader.node.parser.XMLProfileNodeParser;
-import fetch.task.reader.node.parser.XMLShowNodeParser;
+import fetch.task.reader.xml.node.parser.XMLGenericNodeParser;
+import fetch.task.reader.xml.node.parser.XMLNodeParser;
+import fetch.task.reader.xml.node.parser.XMLProfileNodeParser;
+import fetch.task.reader.xml.node.parser.XMLShowNodeParser;
 
 public class XMLNodeParserFactory {
 

@@ -1,4 +1,4 @@
-package fetch.task.reader.node.parser;
+package fetch.task.reader.xml.node.parser;
 
 import java.util.Optional;
 
