@@ -6,9 +6,11 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fetch.task.download.Downloader;
+import fetch.task.download.rpc.TransmissionManager;
 import fetch.task.filter.CosineSimilarityFilter;
 import fetch.task.filter.ShowFilter;
 import fetch.task.reader.Reader;
+import fetch.task.reader.xml.XMLProfilesReader;
 import fetch.task.searcher.ShowSearcher;
 import fetch.task.searcher.rss.RssCrawler;
 
@@ -28,21 +30,8 @@ public class ConfigurationMap {
         addTasks();
         addCrawlers();
         addFilters();
-    }
-
-    private void addTasks() {
-        listableInterfaces.add(Reader.class.getCanonicalName());
-        listableInterfaces.add(ShowSearcher.class.getCanonicalName());
-        listableInterfaces.add(ShowFilter.class.getCanonicalName());
-        listableInterfaces.add(Downloader.class.getCanonicalName());
-    }
-
-    private void addCrawlers() {
-        listableInterfaces.add(RssCrawler.class.getCanonicalName());
-    }
-
-    private void addFilters() {
-        listableInterfaces.add(CosineSimilarityFilter.class.getCanonicalName());
+        addDownloadManager();
+        addProfileReader();
     }
 
     @JsonProperty("listable.interfaces")
@@ -79,5 +68,28 @@ public class ConfigurationMap {
 
     public void setTransmissionPort(int transmissionPort) {
         this.transmissionPort = transmissionPort;
+    }
+
+    private void addTasks() {
+        listableInterfaces.add(Reader.class.getCanonicalName());
+        listableInterfaces.add(ShowSearcher.class.getCanonicalName());
+        listableInterfaces.add(ShowFilter.class.getCanonicalName());
+        listableInterfaces.add(Downloader.class.getCanonicalName());
+    }
+
+    private void addCrawlers() {
+        listableInterfaces.add(RssCrawler.class.getCanonicalName());
+    }
+
+    private void addFilters() {
+        listableInterfaces.add(CosineSimilarityFilter.class.getCanonicalName());
+    }
+
+    private void addDownloadManager() {
+        listableInterfaces.add(TransmissionManager.class.getCanonicalName());
+    }
+
+    private void addProfileReader() {
+        listableInterfaces.add(XMLProfilesReader.class.getCanonicalName());
     }
 }
