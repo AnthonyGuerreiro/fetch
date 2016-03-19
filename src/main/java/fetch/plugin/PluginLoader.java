@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 
-import fetch.annotation.Listable;
+import fetch.annotation.Indexable;
 import fetch.conf.Configuration;
 import fetch.conf.ConfigurationMap;
 import fetch.exception.ConfigurationException;
@@ -29,12 +29,12 @@ public class PluginLoader {
 
     public <T extends Plugin> List<T> getPlugins(Class<T> type) {
         List<? extends Plugin> plugins = this.plugins.get(type);
-        if (plugins == null) {
+        if (plugins == null || plugins.isEmpty()) {
             String name = type.getCanonicalName();
             String msg = "Could not find any plugin with type " + name + ". Make sure "
-                    + name + " is Listable, there are plugins that implement it, and "
+                    + name + " is Indexable, there are plugins that implement it, and "
                     + name + " is listed in " + Configuration.CONFIGURATION_FILE
-                    + " as listable.interfaces";
+                    + " as indexable.plugins";
             throw new NullPointerException(msg);
         }
         return plugins.stream().map(plugin -> (T) plugin).collect(Collectors.toList());
@@ -77,7 +77,7 @@ public class PluginLoader {
     private List<Class<Plugin>> getPluginTypes() throws ConfigurationException {
 
         ConfigurationMap map = Configuration.getInstance().getMap();
-        List<String> interfaceNames = map.getListableInterfaces();
+        List<String> interfaceNames = map.getIndexablePlugins();
 
         List<Class<Plugin>> interfaces = new ArrayList<>(interfaceNames.size());
         for (String interfaceName : interfaceNames) {
@@ -96,15 +96,15 @@ public class PluginLoader {
                         + Plugin.class.getCanonicalName();
                 throw new ConfigurationException(msg);
             }
-            if (!klass.isAnnotationPresent(Listable.class)) {
+            if (!klass.isAnnotationPresent(Indexable.class)) {
                 String msg = "Interface " + className
-                        + " cannot be listed in listable.interfaces";
+                        + " cannot be listed in indexable.plugins";
                 throw new ConfigurationException(msg);
             }
             return (Class<Plugin>) klass;
         } catch (ClassNotFoundException e) {
             String msg = "Cannot find interface " + className + " from "
-                    + Configuration.CONFIGURATION_FILE + " listable.interfaces";
+                    + Configuration.CONFIGURATION_FILE + " indexable.plugins";
             throw new ConfigurationException(msg);
         }
     }
@@ -131,8 +131,8 @@ public class PluginLoader {
     private void validateSingleInstances(Class<Plugin> type, List<Plugin> pluginsByType)
             throws ConfigurationException {
 
-        Listable listable = type.getAnnotation(Listable.class);
-        if (listable.isSingleInstance() && pluginsByType.size() != 1) {
+        Indexable indexable = type.getAnnotation(Indexable.class);
+        if (indexable.isSingleInstance() && pluginsByType.size() != 1) {
             String msg = "Expected 1 plugin of type " + type.getCanonicalName()
                     + ". Found <" + pluginsByType.size() + ">.";
             throw new ConfigurationException(msg);

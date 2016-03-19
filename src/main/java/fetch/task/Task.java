@@ -1,10 +1,10 @@
 package fetch.task;
 
-import fetch.annotation.Listable;
+import fetch.annotation.Indexable;
 import fetch.exception.ConfigurationException;
 import fetch.plugin.HasOrder;
 
-@Listable
+@Indexable
 public interface Task extends HasOrder {
 
     /**

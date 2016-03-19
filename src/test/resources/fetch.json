@@ -1,6 +1,6 @@
 {
 	"profiles.file" : "test.profiles.xml",
-	"listable.interfaces" : [
+	"indexable.plugins" : [
 		"fetch.task.download.DownloadManager",
 		"fetch.task.filter.Filter",
 		"fetch.task.reader.ProfilesReader",

@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Listable {
+public @interface Indexable {
     /**
      * Returns true if annotated interface must have only one instance in
      * runtime.

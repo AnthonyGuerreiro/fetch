@@ -23,6 +23,7 @@ public class RssCrawler implements Crawler {
 
     private static final Logger logger = LogManager.getLogger(RssCrawler.class);
 
+    @Override
     public List<Entry> getEntries(String url) throws FetchException {
 
         try {

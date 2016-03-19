@@ -17,7 +17,7 @@ import fetch.task.searcher.rss.RssCrawler;
 public class ConfigurationMap {
 
     private String profilesFile = "profiles.xml";
-    private List<String> listableInterfaces = new ArrayList<>();
+    private List<String> indexablePlugins = new ArrayList<>();
 
     private String transmissionHost = "localhost";
     private int transmissionPort = 9091;
@@ -34,13 +34,13 @@ public class ConfigurationMap {
         addProfileReader();
     }
 
-    @JsonProperty("listable.interfaces")
-    public List<String> getListableInterfaces() {
-        return listableInterfaces;
+    @JsonProperty("indexable.plugins")
+    public List<String> getIndexablePlugins() {
+        return indexablePlugins;
     }
 
-    public void setListableInterfaces(List<String> listableInterfaces) {
-        this.listableInterfaces = listableInterfaces;
+    public void setIndexablePlugins(List<String> indexablePlugins) {
+        this.indexablePlugins = indexablePlugins;
     }
 
     @JsonProperty("profiles.file")
@@ -71,25 +71,25 @@ public class ConfigurationMap {
     }
 
     private void addTasks() {
-        listableInterfaces.add(Reader.class.getCanonicalName());
-        listableInterfaces.add(ShowSearcher.class.getCanonicalName());
-        listableInterfaces.add(ShowFilter.class.getCanonicalName());
-        listableInterfaces.add(Downloader.class.getCanonicalName());
+        indexablePlugins.add(Reader.class.getCanonicalName());
+        indexablePlugins.add(ShowSearcher.class.getCanonicalName());
+        indexablePlugins.add(ShowFilter.class.getCanonicalName());
+        indexablePlugins.add(Downloader.class.getCanonicalName());
     }
 
     private void addCrawlers() {
-        listableInterfaces.add(RssCrawler.class.getCanonicalName());
+        indexablePlugins.add(RssCrawler.class.getCanonicalName());
     }
 
     private void addFilters() {
-        listableInterfaces.add(CosineSimilarityFilter.class.getCanonicalName());
+        indexablePlugins.add(CosineSimilarityFilter.class.getCanonicalName());
     }
 
     private void addDownloadManager() {
-        listableInterfaces.add(TransmissionManager.class.getCanonicalName());
+        indexablePlugins.add(TransmissionManager.class.getCanonicalName());
     }
 
     private void addProfileReader() {
-        listableInterfaces.add(XMLProfilesReader.class.getCanonicalName());
+        indexablePlugins.add(XMLProfilesReader.class.getCanonicalName());
     }
 }
