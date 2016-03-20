@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import fetch.event.handler.ProfilesReadEventHandler;
 import fetch.task.download.Downloader;
 import fetch.task.download.rpc.TransmissionManager;
 import fetch.task.filter.CosineSimilarityFilter;
@@ -32,6 +33,7 @@ public class ConfigurationMap {
         addFilters();
         addDownloadManager();
         addProfileReader();
+        addEvents();
     }
 
     @JsonProperty("indexable.plugins")
@@ -91,5 +93,9 @@ public class ConfigurationMap {
 
     private void addProfileReader() {
         indexablePlugins.add(XMLProfilesReader.class.getCanonicalName());
+    }
+
+    private void addEvents() {
+        indexablePlugins.add(ProfilesReadEventHandler.class.getCanonicalName());
     }
 }

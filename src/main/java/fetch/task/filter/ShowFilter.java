@@ -2,6 +2,7 @@ package fetch.task.filter;
 
 import java.util.List;
 
+import fetch.annotation.TestMethod;
 import fetch.exception.ConfigurationException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
@@ -18,6 +19,7 @@ public class ShowFilter implements Task {
         List<Filter> filters = getFilters();
     }
 
+    @TestMethod
     public List<Filter> getFilters() {
         return PluginLoader.getInstance().getPlugins(Filter.class);
     }
@@ -25,5 +27,11 @@ public class ShowFilter implements Task {
     @Override
     public int getOrder() {
         return 300;
+    }
+
+    @Override
+    public void onFinish() {
+        // TODO Auto-generated method stub
+
     }
 }

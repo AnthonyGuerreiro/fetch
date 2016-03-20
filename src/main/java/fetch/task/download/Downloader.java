@@ -1,5 +1,6 @@
 package fetch.task.download;
 
+import fetch.annotation.TestMethod;
 import fetch.exception.ConfigurationException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
@@ -16,6 +17,7 @@ public class Downloader implements Task {
         DownloadManager downloader = getDownloader();
     }
 
+    @TestMethod
     public DownloadManager getDownloader() throws ConfigurationException {
         return PluginLoader.getInstance().getPlugin(DownloadManager.class);
     }
@@ -23,6 +25,12 @@ public class Downloader implements Task {
     @Override
     public int getOrder() {
         return 400;
+    }
+
+    @Override
+    public void onFinish() {
+        // TODO Auto-generated method stub
+
     }
 
 }

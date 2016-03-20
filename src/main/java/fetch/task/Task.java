@@ -14,4 +14,5 @@ public interface Task extends HasOrder {
      */
     void execute() throws ConfigurationException;
 
+    void onFinish();
 }

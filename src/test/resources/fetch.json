@@ -5,6 +5,8 @@
 		"fetch.task.filter.Filter",
 		"fetch.task.reader.ProfilesReader",
 		"fetch.task.searcher.Crawler",
-		"fetch.task.Task"
+		"fetch.task.Task",
+		
+		"fetch.event.handler.ProfilesReadEventHandler"
 	]
 }

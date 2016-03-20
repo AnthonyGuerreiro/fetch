@@ -16,5 +16,5 @@ fetch.task.filter.CosineSimilarityFilter
 # Download manager
 fetch.task.download.rpc.TransmissionManager
 
-#Profile reader
+# Profile reader
 fetch.task.reader.xml.XMLProfilesReader

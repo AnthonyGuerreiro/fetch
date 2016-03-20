@@ -1,8 +1,12 @@
 package fetch.task.reader;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import fetch.annotation.TestMethod;
 import fetch.conf.Configuration;
+import fetch.event.ProfilesReadEvent;
+import fetch.event.core.EventDispatcher;
 import fetch.exception.ConfigurationException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
@@ -14,32 +18,45 @@ public class Reader implements Task {
 
     private final static Logger logger = LogManager.getLogger(Reader.class);
 
+    private List<Profile> profiles = new ArrayList<>();
+
     @Override
     public void execute() throws ConfigurationException {
         logger.info("Starting task " + getClass().getSimpleName());
 
         logger.info("Reading profiles from " + getProfilesFilename());
-        List<Profile> profiles = getProfiles();
+        readProfiles();
     }
 
-    public ProfilesReader getProfilesReader() throws ConfigurationException {
-        return PluginLoader.getInstance().getPlugin(ProfilesReader.class);
-    }
-
-    private List<Profile> getProfiles() throws ConfigurationException {
+    private void readProfiles() throws ConfigurationException {
 
         String filename = getProfilesFilename();
         ProfilesReader profilesReaders = getProfilesReader();
-        return profilesReaders.getProfiles(filename);
+        profiles = profilesReaders.getProfiles(filename);
     }
 
     private String getProfilesFilename() {
         return Configuration.getInstance().getMap().getProfilesFile();
     }
 
+    @TestMethod
+    public List<Profile> getProfiles() {
+        return profiles;
+    }
+
+    @TestMethod
+    public ProfilesReader getProfilesReader() throws ConfigurationException {
+        return PluginLoader.getInstance().getPlugin(ProfilesReader.class);
+    }
+
     @Override
     public int getOrder() {
         return 100;
+    }
+
+    @Override
+    public void onFinish() {
+        EventDispatcher.getInstance().dispatch((new ProfilesReadEvent(profiles)));
     }
 
 }
