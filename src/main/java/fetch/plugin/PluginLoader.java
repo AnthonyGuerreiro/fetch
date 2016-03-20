@@ -28,20 +28,27 @@ public class PluginLoader {
     }
 
     public <T extends Plugin> List<T> getPlugins(Class<T> type) {
+        return getPlugins(type, true);
+    }
+
+    public <T extends Plugin> List<T> getPlugins(Class<T> type, boolean mandatoryPlugin) {
+
         List<? extends Plugin> plugins = this.plugins.get(type);
-        if (plugins == null || plugins.isEmpty()) {
+        if (mandatoryPlugin && (plugins == null || plugins.isEmpty())) {
             String name = type.getCanonicalName();
             String msg = "Could not find any plugin with type " + name + ". Make sure "
                     + name + " is Indexable, there are plugins that implement it, and "
                     + name + " is listed in " + Configuration.CONFIGURATION_FILE
                     + " as indexable.plugins";
             throw new NullPointerException(msg);
+        } else if (!mandatoryPlugin && (plugins == null || plugins.isEmpty())) {
+            return new ArrayList<>();
         }
         return plugins.stream().map(plugin -> (T) plugin).collect(Collectors.toList());
     }
 
     public <T extends Plugin> T getPlugin(Class<T> type) {
-        return getPlugins(type).get(0);
+        return getPlugins(type, true).get(0);
     }
 
     private PluginLoader() {

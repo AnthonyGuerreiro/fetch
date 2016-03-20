@@ -6,14 +6,11 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fetch.event.handler.ProfilesReadEventHandler;
-import fetch.task.download.Downloader;
-import fetch.task.download.rpc.TransmissionManager;
-import fetch.task.filter.CosineSimilarityFilter;
-import fetch.task.filter.ShowFilter;
-import fetch.task.reader.Reader;
-import fetch.task.reader.xml.XMLProfilesReader;
-import fetch.task.searcher.ShowSearcher;
-import fetch.task.searcher.rss.RssCrawler;
+import fetch.task.Task;
+import fetch.task.download.DownloadManager;
+import fetch.task.filter.Filter;
+import fetch.task.reader.ProfilesReader;
+import fetch.task.searcher.Crawler;
 
 public class ConfigurationMap {
 
@@ -73,26 +70,23 @@ public class ConfigurationMap {
     }
 
     private void addTasks() {
-        indexablePlugins.add(Reader.class.getCanonicalName());
-        indexablePlugins.add(ShowSearcher.class.getCanonicalName());
-        indexablePlugins.add(ShowFilter.class.getCanonicalName());
-        indexablePlugins.add(Downloader.class.getCanonicalName());
+        indexablePlugins.add(Task.class.getCanonicalName());
     }
 
     private void addCrawlers() {
-        indexablePlugins.add(RssCrawler.class.getCanonicalName());
+        indexablePlugins.add(Crawler.class.getCanonicalName());
     }
 
     private void addFilters() {
-        indexablePlugins.add(CosineSimilarityFilter.class.getCanonicalName());
+        indexablePlugins.add(Filter.class.getCanonicalName());
     }
 
     private void addDownloadManager() {
-        indexablePlugins.add(TransmissionManager.class.getCanonicalName());
+        indexablePlugins.add(DownloadManager.class.getCanonicalName());
     }
 
     private void addProfileReader() {
-        indexablePlugins.add(XMLProfilesReader.class.getCanonicalName());
+        indexablePlugins.add(ProfilesReader.class.getCanonicalName());
     }
 
     private void addEvents() {
