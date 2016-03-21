@@ -24,7 +24,7 @@ public class Logger {
         logger.trace(e);
     }
 
-    public void trace(String msg, Exception e, Object... args) {
+    public void trace(Exception e, String msg, Object... args) {
         logger.trace(getMessage(msg, args), e);
     }
 
@@ -36,7 +36,7 @@ public class Logger {
         logger.debug(e);
     }
 
-    public void debug(String msg, Exception e, Object... args) {
+    public void debug(Exception e, String msg, Object... args) {
         logger.debug(getMessage(msg, args), e);
     }
 
@@ -48,7 +48,7 @@ public class Logger {
         logger.info(e);
     }
 
-    public void info(String msg, Exception e, Object... args) {
+    public void info(Exception e, String msg, Object... args) {
         logger.info(getMessage(msg, args), e);
     }
 
@@ -60,7 +60,7 @@ public class Logger {
         logger.warn(e);
     }
 
-    public void warn(String msg, Exception e, Object... args) {
+    public void warn(Exception e, String msg, Object... args) {
         logger.warn(getMessage(msg, args), e);
     }
 
@@ -72,7 +72,7 @@ public class Logger {
         logger.error(e);
     }
 
-    public void error(String msg, Exception e, Object... args) {
+    public void error(Exception e, String msg, Object... args) {
         logger.error(getMessage(msg, args), e);
     }
 
@@ -84,7 +84,7 @@ public class Logger {
         logger.fatal(e);
     }
 
-    public void fatal(String msg, Exception e, Object... args) {
+    public void fatal(Exception e, String msg, Object... args) {
         logger.fatal(getMessage(msg, args), e);
     }
 
