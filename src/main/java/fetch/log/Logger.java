@@ -1,82 +1,91 @@
 package fetch.log;
 
+import fetch.message.Messages;
+
 public class Logger {
 
     private org.apache.logging.log4j.Logger logger;
+
+    private Messages messages = new Messages();
 
     public Logger(org.apache.logging.log4j.Logger logger) {
         this.logger = logger;
     }
 
-    public void trace(String msg) {
-        logger.trace(msg);
+    private String getMessage(String msg, Object... args) {
+        return messages.get(msg, args);
+    }
+
+    public void trace(String msg, Object... args) {
+        logger.trace(getMessage(msg, args));
     }
 
     public void trace(Exception e) {
         logger.trace(e);
     }
 
-    public void trace(String msg, Exception e) {
-        logger.trace(msg, e);
+    public void trace(String msg, Exception e, Object... args) {
+        logger.trace(getMessage(msg, args), e);
     }
 
-    public void debug(String msg) {
-        logger.debug(msg);
+    public void debug(String msg, Object... args) {
+        logger.debug(getMessage(msg, args));
     }
 
     public void debug(Exception e) {
         logger.debug(e);
     }
 
-    public void debug(String msg, Exception e) {
-        logger.debug(msg, e);
+    public void debug(String msg, Exception e, Object... args) {
+        logger.debug(getMessage(msg, args), e);
     }
 
-    public void info(String msg) {
-        logger.info(msg);
+    public void info(String msg, Object... args) {
+        logger.info(getMessage(msg, args));
     }
 
     public void info(Exception e) {
         logger.info(e);
     }
 
-    public void info(String msg, Exception e) {
-        logger.info(msg, e);
+    public void info(String msg, Exception e, Object... args) {
+        logger.info(getMessage(msg, args), e);
     }
 
-    public void warn(String msg) {
-        logger.warn(msg);
+    public void warn(String msg, Object... args) {
+        logger.warn(getMessage(msg, args));
     }
 
     public void warn(Exception e) {
         logger.warn(e);
     }
 
-    public void warn(String msg, Exception e) {
-        logger.warn(msg, e);
+    public void warn(String msg, Exception e, Object... args) {
+        logger.warn(getMessage(msg, args), e);
     }
 
-    public void error(String msg) {
-        logger.error(msg);
+    public void error(String msg, Object... args) {
+        logger.error(getMessage(msg, args));
     }
 
     public void error(Exception e) {
         logger.error(e);
     }
 
-    public void error(String msg, Exception e) {
-        logger.error(msg, e);
+    public void error(String msg, Exception e, Object... args) {
+        logger.error(getMessage(msg, args), e);
     }
 
-    public void fatal(String msg) {
-        logger.fatal(msg);
+    public void fatal(String msg, Object... args) {
+        logger.fatal(getMessage(msg, args));
     }
 
     public void fatal(Exception e) {
         logger.fatal(e);
     }
 
-    public void fatal(String msg, Exception e) {
-        logger.fatal(msg, e);
+    public void fatal(String msg, Exception e, Object... args) {
+        logger.fatal(getMessage(msg, args), e);
     }
+
 }
