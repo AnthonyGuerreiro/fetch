@@ -24,7 +24,7 @@ public class Downloader implements Task {
 
     @Override
     public int getOrder() {
-        return 400;
+        return 500;
     }
 
     @Override

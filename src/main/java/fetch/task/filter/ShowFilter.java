@@ -26,7 +26,7 @@ public class ShowFilter implements Task {
 
     @Override
     public int getOrder() {
-        return 300;
+        return 400;
     }
 
     @Override

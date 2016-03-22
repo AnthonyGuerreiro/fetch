@@ -15,6 +15,7 @@ import fetch.task.filter.CosineSimilarityFilter;
 import fetch.task.filter.Filter;
 import fetch.task.filter.ShowFilter;
 import fetch.task.searcher.Entry;
+import fetch.test.TestEntryImpl;
 
 public class TestFilters {
 

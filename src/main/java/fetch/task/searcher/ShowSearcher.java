@@ -24,13 +24,18 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
 
     @Override
     public void execute() throws ConfigurationException {
-        logger.info("tk.starting.task" + getClass().getSimpleName());
+        logger.info("tk.starting.task", getClass().getSimpleName());
         List<Crawler> crawlers = getCrawlers();
     }
 
     @TestMethod
     public List<Profile> getProfiles() {
         return profiles;
+    }
+
+    @TestMethod
+    public List<Entry> getEntries() {
+        return entries;
     }
 
     @TestMethod

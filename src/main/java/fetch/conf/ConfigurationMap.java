@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fetch.event.handler.ProfilesReadEventHandler;
+import fetch.event.handler.ShowsSearchedEventHandler;
 import fetch.task.Task;
 import fetch.task.download.DownloadManager;
 import fetch.task.filter.Filter;
@@ -90,6 +91,8 @@ public class ConfigurationMap {
     }
 
     private void addEvents() {
+
         indexablePlugins.add(ProfilesReadEventHandler.class.getCanonicalName());
+        indexablePlugins.add(ShowsSearchedEventHandler.class.getCanonicalName());
     }
 }

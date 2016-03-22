@@ -1,4 +1,4 @@
-package fetch.test.filter;
+package fetch.test;
 
 import java.time.LocalDateTime;
 import java.util.Optional;

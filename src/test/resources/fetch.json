@@ -7,6 +7,7 @@
 		"fetch.task.searcher.Crawler",
 		"fetch.task.Task",
 		
-		"fetch.event.handler.ProfilesReadEventHandler"
+		"fetch.event.handler.ProfilesReadEventHandler",
+		"fetch.event.handler.ShowsSearchedEventHandler"
 	]
 }

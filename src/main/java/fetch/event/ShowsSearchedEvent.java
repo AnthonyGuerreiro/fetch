@@ -20,7 +20,7 @@ public class ShowsSearchedEvent implements Event {
         return ShowsSearchedEventHandler.class;
     }
 
-    public List<Entry> getShows() {
+    public List<Entry> getEntries() {
         return entries;
     }
 }

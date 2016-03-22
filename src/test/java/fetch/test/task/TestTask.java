@@ -13,6 +13,7 @@ import fetch.task.download.Downloader;
 import fetch.task.filter.ShowFilter;
 import fetch.task.reader.Reader;
 import fetch.task.searcher.ShowSearcher;
+import fetch.task.splitter.EpisodeSplitter;
 
 public class TestTask {
 
@@ -23,10 +24,11 @@ public class TestTask {
     @Test
     public void testLoadTasks() {
         List<Task> tasks = getTasks();
-        assertEquals(4, tasks.size());
+        assertEquals(5, tasks.size());
         assertTrue(tasks.get(0) instanceof Reader);
         assertTrue(tasks.get(1) instanceof ShowSearcher);
-        assertTrue(tasks.get(2) instanceof ShowFilter);
-        assertTrue(tasks.get(3) instanceof Downloader);
+        assertTrue(tasks.get(2) instanceof EpisodeSplitter);
+        assertTrue(tasks.get(3) instanceof ShowFilter);
+        assertTrue(tasks.get(4) instanceof Downloader);
     }
 }
