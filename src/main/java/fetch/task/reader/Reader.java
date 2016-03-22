@@ -56,6 +56,7 @@ public class Reader implements Task {
 
     @Override
     public void onFinish() {
+        logger.info("tk.finish.task", getClass().getSimpleName());
         EventDispatcher.getInstance().dispatch((new ProfilesReadEvent(profiles)));
     }
 

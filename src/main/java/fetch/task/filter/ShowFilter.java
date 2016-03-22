@@ -31,7 +31,7 @@ public class ShowFilter implements Task {
 
     @Override
     public void onFinish() {
-        // TODO Auto-generated method stub
-
+        logger.info("tk.finish.task", getClass().getSimpleName());
+        // TODO implement
     }
 }

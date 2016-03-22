@@ -55,6 +55,7 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
 
     @Override
     public void onFinish() {
+        logger.info("tk.finish.task", getClass().getSimpleName());
         EventDispatcher.getInstance().dispatch((new ShowsSearchedEvent(entries)));
     }
 
