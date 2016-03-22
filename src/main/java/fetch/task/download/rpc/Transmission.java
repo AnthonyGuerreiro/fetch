@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fetch.exception.DownloadManagerException;
+import fetch.message.Messages;
 import fetch.task.download.BitTorrentClient;
 import fetch.task.download.TorrentInfo;
 import nl.stil4m.transmission.api.TransmissionRpcClient;
@@ -52,7 +53,8 @@ public class Transmission implements BitTorrentClient {
             }
             return infos;
         } catch (RpcException e) {
-            throw new DownloadManagerException("Unable to get torrents info", e);
+            String msg = new Messages().get("dl.fail.torrent.info");
+            throw new DownloadManagerException(msg, e);
         }
     }
 
@@ -68,12 +70,12 @@ public class Transmission implements BitTorrentClient {
             TorrentInfo info = new TransmissionTorrentInfo(result.getTorrentAdded());
 
             if (info.getId() == null) {
-                String msg = "Could not add torrent with magnetLink " + magnetLink;
+                String msg = new Messages().get("dl.fail.add.torrent.magnet", magnetLink);
                 throw new DownloadManagerException(msg);
             }
             return info;
         } catch (RpcException e) {
-            String msg = "Failed to add torrent with magnetLink " + magnetLink;
+            String msg = new Messages().get("dl.fail.add.torrent.magnet", magnetLink);
             throw new DownloadManagerException(msg, e);
         }
     }
@@ -83,7 +85,7 @@ public class Transmission implements BitTorrentClient {
         try {
             client.removeTorrent(new RemoveTorrentInfo(new NumberListIds(ids), true));
         } catch (RpcException e) {
-            String msg = "Failed to remove torrent(s) with ids " + ids;
+            String msg = new Messages().get("dl.fail.remove.torrent.id", (Object[]) ids);
             throw new DownloadManagerException(msg);
         }
     }

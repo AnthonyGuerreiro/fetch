@@ -35,18 +35,12 @@ public class EventDispatcher {
                     .getPlugins(handlerType, false);
 
             if (handlers.isEmpty()) {
-                String msg = "Dispatched event of type " + eventType.getCanonicalName()
-                        + " but there was no handler of type "
-                        + handlerType.getCanonicalName() + " to process it";
-                logger.info(msg);
+                logger.info("ev.handler.not.found", eventType, handlerType);
             }
 
             handlers.forEach(handler -> invoke(handler, method, event));
         } catch (NoSuchMethodException | SecurityException e) {
-            String msg = "Could not find " + methodName + "("
-                    + eventType.getCanonicalName() + ") on class " + handlerType;
-            logger.error(msg);
-
+            logger.error("ev.handler.method.event", methodName, eventType, handlerType);
         }
     }
 
@@ -56,9 +50,7 @@ public class EventDispatcher {
         } catch (IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException e) {
 
-            String msg = "Error handling event " + event.getClass().getCanonicalName()
-                    + " on handler " + handler.getClass().getCanonicalName();
-            logger.error(msg, e);
+            logger.error(e, "ev.error.handling", event.getClass(), handler.getClass());
         }
     }
 }

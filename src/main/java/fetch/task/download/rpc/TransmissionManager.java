@@ -30,7 +30,7 @@ public class TransmissionManager implements DownloadManager {
     public TorrentInfo addTorrent(String magnetLink) throws DownloadManagerException {
 
         TorrentInfo info = client.addTorrent(magnetLink);
-        logger.info("Starting downloading " + info.getName());
+        logger.info("dl.starting.download", info.getName());
         return info;
     }
 

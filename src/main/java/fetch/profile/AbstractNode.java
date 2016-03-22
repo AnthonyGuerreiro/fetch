@@ -7,8 +7,6 @@ import fetch.log.Logger;
 
 public abstract class AbstractNode implements ProfileNode {
 
-    private final static String template = "Unsupported operation XML entry %s inside %s";
-
     private final static Logger logger = LogManager.getLogger(AbstractNode.class);
 
     private ProfileNode parent;
@@ -43,8 +41,6 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     private void log(Class<?> klass) {
-        String log = String.format(template, klass.getSimpleName(),
-                getClass().getSimpleName());
-        logger.warn(log);
+        logger.warn("pf.not.supported.child", klass, getClass());
     }
 }

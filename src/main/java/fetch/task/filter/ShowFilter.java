@@ -15,7 +15,7 @@ public class ShowFilter implements Task {
 
     @Override
     public void execute() throws ConfigurationException {
-        logger.info("Starting task " + getClass().getSimpleName());
+        logger.info("tk.starting.task", getClass().getSimpleName());
         List<Filter> filters = getFilters();
     }
 

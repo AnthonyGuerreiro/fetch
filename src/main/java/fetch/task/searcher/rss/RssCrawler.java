@@ -16,6 +16,7 @@ import com.rometools.rome.io.XmlReader;
 import fetch.exception.FetchException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
+import fetch.message.Messages;
 import fetch.task.searcher.Crawler;
 import fetch.task.searcher.Entry;
 
@@ -29,8 +30,7 @@ public class RssCrawler implements Crawler {
         try {
             return _getEntries(url);
         } catch (Exception e) {
-            String msg = "Unable to fetch feeds from " + url
-                    + ". Proceeding with no matches";
+            String msg = new Messages().get("sc.fail.fetch", url);
             throw new FetchException(msg, e);
         }
 

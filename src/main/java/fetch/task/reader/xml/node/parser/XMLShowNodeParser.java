@@ -21,7 +21,7 @@ public class XMLShowNodeParser implements XMLNodeParser {
 
         if (!previous.isPresent()) {
             ConfigurationMap map = Configuration.getInstance().getMap();
-            logger.warn("Found node parser with no parent in " + map.getProfilesFile());
+            logger.warn("rd.node.no.parent", map.getProfilesFile());
             return Optional.empty();
         }
 

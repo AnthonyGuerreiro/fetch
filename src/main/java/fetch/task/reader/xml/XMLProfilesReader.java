@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import fetch.exception.ConfigurationException;
+import fetch.message.Messages;
 import fetch.profile.Profile;
 import fetch.profile.ProfileNode;
 import fetch.task.reader.ProfilesReader;
@@ -41,7 +42,8 @@ public class XMLProfilesReader extends DefaultHandler implements ProfilesReader 
             parser.parse(is, this);
             return profiles;
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new ConfigurationException("Could not parse " + filename, e);
+            String msg = new Messages().get("rd.fail.parse", filename);
+            throw new ConfigurationException(msg, e);
         }
     }
 

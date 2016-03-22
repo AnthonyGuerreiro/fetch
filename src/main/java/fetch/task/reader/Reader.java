@@ -22,9 +22,9 @@ public class Reader implements Task {
 
     @Override
     public void execute() throws ConfigurationException {
-        logger.info("starting.task", getClass().getSimpleName());
+        logger.info("tk.starting.task", getClass().getSimpleName());
 
-        logger.info("Reading profiles from " + getProfilesFilename());
+        logger.info("rd.reading.profiles", getProfilesFilename());
         readProfiles();
     }
 

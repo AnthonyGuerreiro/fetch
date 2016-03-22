@@ -14,6 +14,7 @@ import fetch.exception.ConfigurationException;
 import fetch.exception.FetchRuntimeException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
+import fetch.message.Messages;
 
 public class PluginLoader {
 
@@ -35,13 +36,11 @@ public class PluginLoader {
 
         List<? extends Plugin> plugins = this.plugins.get(type);
         if (mandatoryPlugin && (plugins == null || plugins.isEmpty())) {
-            String name = type.getCanonicalName();
-            String msg = "Could not find any plugin with type " + name + ". Make sure "
-                    + name + " is Indexable, there are plugins that implement it, and "
-                    + name + " is listed in " + Configuration.CONFIGURATION_FILE
-                    + " as indexable.plugins";
+            String msg = new Messages().get("pg.not.found", type,
+                    Configuration.CONFIGURATION_FILE);
             throw new NullPointerException(msg);
-        } else if (!mandatoryPlugin && (plugins == null || plugins.isEmpty())) {
+        }
+        if (!mandatoryPlugin && (plugins == null || plugins.isEmpty())) {
             return new ArrayList<>();
         }
         return plugins.stream().map(plugin -> (T) plugin).collect(Collectors.toList());
@@ -55,7 +54,7 @@ public class PluginLoader {
         try {
             init();
         } catch (ConfigurationException e) {
-            String msg = "Failed to load plugins";
+            String msg = new Messages().get("pg.fail.load");
             throw new FetchRuntimeException(msg, e);
         }
     }
@@ -76,7 +75,7 @@ public class PluginLoader {
         ServiceLoader<Plugin> pluginsLoaded = ServiceLoader.load(Plugin.class);
         for (Plugin plugin : pluginsLoaded) {
             plugins.add(plugin);
-            logger.trace("Plugin found: " + plugin.getClass().getCanonicalName());
+            logger.trace("pg.found", plugin.getClass());
         }
         return plugins;
     }
@@ -99,19 +98,18 @@ public class PluginLoader {
         try {
             Class<?> klass = Class.forName(className);
             if (!Plugin.class.isAssignableFrom(klass)) {
-                String msg = "Interface " + className + " is not a "
-                        + Plugin.class.getCanonicalName();
+                String msg = new Messages().get("pg.interface.not.plugin", className,
+                        Plugin.class);
                 throw new ConfigurationException(msg);
             }
             if (!klass.isAnnotationPresent(Indexable.class)) {
-                String msg = "Interface " + className
-                        + " cannot be listed in indexable.plugins";
+                String msg = new Messages().get("pg.cannot.be.listed", className);
                 throw new ConfigurationException(msg);
             }
             return (Class<Plugin>) klass;
         } catch (ClassNotFoundException e) {
-            String msg = "Cannot find interface " + className + " from "
-                    + Configuration.CONFIGURATION_FILE + " indexable.plugins";
+            String msg = new Messages().get("pg.class.not.found", className,
+                    Configuration.CONFIGURATION_FILE);
             throw new ConfigurationException(msg);
         }
     }
@@ -140,8 +138,8 @@ public class PluginLoader {
 
         Indexable indexable = type.getAnnotation(Indexable.class);
         if (indexable.isSingleInstance() && pluginsByType.size() != 1) {
-            String msg = "Expected 1 plugin of type " + type.getCanonicalName()
-                    + ". Found <" + pluginsByType.size() + ">.";
+            String msg = new Messages().get("pg.is.not.single", type,
+                    pluginsByType.size());
             throw new ConfigurationException(msg);
         }
     }

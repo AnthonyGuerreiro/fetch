@@ -13,7 +13,7 @@ public class Downloader implements Task {
 
     @Override
     public void execute() throws ConfigurationException {
-        logger.info("Starting task " + getClass().getSimpleName());
+        logger.info("tk.starting.task", getClass().getSimpleName());
         DownloadManager downloader = getDownloader();
     }
 

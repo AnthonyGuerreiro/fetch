@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fetch.exception.FetchRuntimeException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
+import fetch.message.Messages;
 
 public class Configuration {
 
@@ -39,13 +40,12 @@ public class Configuration {
             if (is != null) {
                 map = mapper.readValue(is, ConfigurationMap.class);
             } else {
-                String msg = CONFIGURATION_FILE
-                        + " not found, using default configuration";
-                logger.info(msg);
+                logger.info("cf.file.not.found", CONFIGURATION_FILE);
             }
         } catch (IOException e) {
-            String msg = "Failed to read " + CONFIGURATION_FILE;
-            logger.error(msg, e);
+            Messages messages = new Messages();
+            String msg = messages.get("cf.fail.read", CONFIGURATION_FILE);
+            logger.error(e, msg);
             throw new FetchRuntimeException(msg, e);
         }
     }
