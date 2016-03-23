@@ -1,5 +1,6 @@
 package fetch.task.reader.xml;
 
+import fetch.profile.ProfileNode;
 import fetch.task.reader.xml.node.parser.XMLBeginNodeParser;
 import fetch.task.reader.xml.node.parser.XMLGenericNodeParser;
 import fetch.task.reader.xml.node.parser.XMLNodeParser;
@@ -8,7 +9,7 @@ import fetch.task.reader.xml.node.parser.XMLShowNodeParser;
 
 public class XMLNodeParserFactory {
 
-    public XMLNodeParser getXMLProfileNodeParser(String name) {
+    public XMLNodeParser<? extends ProfileNode> getXMLProfileNodeParser(String name) {
         name = name.toLowerCase();
         switch (name) {
             case "profile":

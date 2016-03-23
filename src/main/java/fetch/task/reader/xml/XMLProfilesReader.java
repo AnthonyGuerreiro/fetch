@@ -55,8 +55,11 @@ public class XMLProfilesReader extends DefaultHandler implements ProfilesReader 
                 : Optional.of(nodes.peek());
 
         XMLNodeParserFactory factory = new XMLNodeParserFactory();
-        XMLNodeParser nodeParser = factory.getXMLProfileNodeParser(qName);
-        Optional<ProfileNode> node = nodeParser.getProfileNode(attributes, previous);
+        XMLNodeParser<? extends ProfileNode> nodeParser = factory
+                .getXMLProfileNodeParser(qName);
+        Optional<? extends ProfileNode> node = nodeParser.getProfileNode(attributes,
+                previous);
+
         if (node.isPresent()) {
             ProfileNode pNode = node.get();
             nodes.push(pNode);
