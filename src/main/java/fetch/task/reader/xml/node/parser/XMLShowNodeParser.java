@@ -11,12 +11,12 @@ import fetch.log.Logger;
 import fetch.profile.ProfileNode;
 import fetch.profile.Show;
 
-public class XMLShowNodeParser implements XMLNodeParser {
+public class XMLShowNodeParser implements XMLNodeParser<Show> {
 
     private final static Logger logger = LogManager.getLogger(XMLShowNodeParser.class);
 
     @Override
-    public Optional<ProfileNode> getProfileNode(Attributes attributes,
+    public Optional<Show> getProfileNode(Attributes attributes,
             Optional<ProfileNode> previous) {
 
         if (!previous.isPresent()) {

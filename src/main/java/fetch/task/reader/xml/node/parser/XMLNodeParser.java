@@ -6,8 +6,7 @@ import org.xml.sax.Attributes;
 
 import fetch.profile.ProfileNode;
 
-public interface XMLNodeParser {
+public interface XMLNodeParser<N extends ProfileNode> {
 
-    Optional<ProfileNode> getProfileNode(Attributes attributes,
-            Optional<ProfileNode> previous);
+    Optional<N> getProfileNode(Attributes attributes, Optional<ProfileNode> previous);
 }

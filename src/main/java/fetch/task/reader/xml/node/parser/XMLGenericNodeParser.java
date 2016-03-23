@@ -6,7 +6,7 @@ import org.xml.sax.Attributes;
 
 import fetch.profile.ProfileNode;
 
-public class XMLGenericNodeParser implements XMLNodeParser {
+public class XMLGenericNodeParser implements XMLNodeParser<ProfileNode> {
 
     @Override
     public Optional<ProfileNode> getProfileNode(Attributes attributes,

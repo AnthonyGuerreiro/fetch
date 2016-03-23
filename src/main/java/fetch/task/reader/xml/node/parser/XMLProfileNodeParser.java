@@ -7,10 +7,10 @@ import org.xml.sax.Attributes;
 import fetch.profile.Profile;
 import fetch.profile.ProfileNode;
 
-public class XMLProfileNodeParser implements XMLNodeParser {
+public class XMLProfileNodeParser implements XMLNodeParser<Profile> {
 
     @Override
-    public Optional<ProfileNode> getProfileNode(Attributes attributes,
+    public Optional<Profile> getProfileNode(Attributes attributes,
             Optional<ProfileNode> previous) {
 
         Profile profile = new Profile();
