@@ -25,7 +25,7 @@ public class Profile extends AbstractNode {
     }
 
     @Override
-    public Optional<ProfileNode> append(Show show) {
+    public Optional<Show> append(Show show) {
         shows.add(show);
         return Optional.of(show);
     }

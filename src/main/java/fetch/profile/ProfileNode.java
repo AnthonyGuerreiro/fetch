@@ -6,21 +6,21 @@ public interface ProfileNode {
 
     /**
      * Sets the {@code parent} of this node
-     * 
+     *
      * @param parent
      */
     void setParent(ProfileNode parent);
 
     /**
      * Returns the parent of this node
-     * 
+     *
      * @return the parent of this node
      */
     ProfileNode getParent();
 
     /**
      * Sets the {@code value} of this node
-     * 
+     *
      * @param value
      */
     void setValue(String value);
@@ -31,7 +31,7 @@ public interface ProfileNode {
      * @param profile
      * @return Optional of {@code profile} if {@code profile} was appended.
      */
-    Optional<ProfileNode> append(Profile profile);
+    Optional<Profile> append(Profile profile);
 
     /**
      * Appends the {@code show} to this node and returns it
@@ -39,6 +39,13 @@ public interface ProfileNode {
      * @param show
      * @return Optional of {@code show} if {@code show} was appended.
      */
-    Optional<ProfileNode> append(Show show);
+    Optional<Show> append(Show show);
 
+    /**
+     * Appends the {@code node} to this node and returns it
+     *
+     * @param show
+     * @return Optional of {@code node} if {@code node} was appended.
+     */
+    Optional<ProfileNode> append(ProfileNode node);
 }

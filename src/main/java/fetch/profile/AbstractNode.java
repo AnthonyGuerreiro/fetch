@@ -22,16 +22,23 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     @Override
-    public Optional<ProfileNode> append(Profile profile) {
+    public Optional<Profile> append(Profile profile) {
 
         log(Profile.class);
         return Optional.empty();
     }
 
     @Override
-    public Optional<ProfileNode> append(Show show) {
+    public Optional<Show> append(Show show) {
 
         log(Show.class);
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ProfileNode> append(ProfileNode node) {
+
+        log(node.getClass());
         return Optional.empty();
     }
 
