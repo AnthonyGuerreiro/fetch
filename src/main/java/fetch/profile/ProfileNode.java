@@ -1,7 +1,5 @@
 package fetch.profile;
 
-import java.util.Optional;
-
 public interface ProfileNode {
 
     /**
@@ -29,39 +27,34 @@ public interface ProfileNode {
      * Appends the {@code profile} node to this node and returns it
      *
      * @param profile
-     * @return Optional of {@code profile} if {@code profile} was appended.
      */
-    Optional<Profile> append(Profile profile);
+    void append(Profile profile);
 
     /**
      * Appends the {@code show} node to this node and returns it
      *
      * @param show
-     * @return Optional of {@code show} if {@code show} was appended.
      */
-    Optional<Show> append(Show show);
+    void append(Show show);
 
     /**
      * Appends the {@code begin} node to this node and returns it
      *
      * @param begin
-     * @return Optional of {@code begin} if {@code begin} was appended.
      */
-    Optional<Begin> append(Begin begin);
+    void append(Begin begin);
 
     /**
      * Appends the {@code subtitles} node to this node and returns it
      *
      * @param subtitles
-     * @return Optional of {@code subtitles} if {@code subtitles} was appended.
      */
-    Optional<Subtitles> append(Subtitles subtitles);
+    void append(Subtitles subtitles);
 
     /**
      * Appends the {@code node} to this node and returns it
      *
      * @param node
-     * @return Optional of {@code node} if {@code node} was appended.
      */
-    Optional<ProfileNode> append(ProfileNode node);
+    void append(ProfileNode node);
 }

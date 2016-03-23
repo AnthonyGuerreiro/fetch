@@ -17,15 +17,13 @@ public class Show extends AbstractNode {
     }
 
     @Override
-    public Optional<Begin> append(Begin begin) {
+    public void append(Begin begin) {
         this.begin = begin;
-        return Optional.of(begin);
     }
 
     @Override
-    public Optional<Subtitles> append(Subtitles subtitles) {
+    public void append(Subtitles subtitles) {
         this.subtitles = subtitles;
-        return Optional.of(subtitles);
     }
 
     public Optional<String> getBegin() {

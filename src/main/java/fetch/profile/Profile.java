@@ -2,7 +2,6 @@ package fetch.profile;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Profile extends AbstractNode {
     private String name;
@@ -25,9 +24,8 @@ public class Profile extends AbstractNode {
     }
 
     @Override
-    public Optional<Show> append(Show show) {
+    public void append(Show show) {
         shows.add(show);
-        return Optional.of(show);
     }
 
 }

@@ -1,7 +1,5 @@
 package fetch.profile;
 
-import java.util.Optional;
-
 import fetch.log.LogManager;
 import fetch.log.Logger;
 
@@ -22,38 +20,28 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     @Override
-    public Optional<Profile> append(Profile profile) {
-
+    public void append(Profile profile) {
         log(Profile.class);
-        return Optional.empty();
     }
 
     @Override
-    public Optional<Show> append(Show show) {
-
+    public void append(Show show) {
         log(Show.class);
-        return Optional.empty();
     }
 
     @Override
-    public Optional<Begin> append(Begin begin) {
-
+    public void append(Begin begin) {
         log(Begin.class);
-        return Optional.empty();
     }
 
     @Override
-    public Optional<Subtitles> append(Subtitles subtitles) {
-
+    public void append(Subtitles subtitles) {
         log(Subtitles.class);
-        return Optional.empty();
     }
 
     @Override
-    public Optional<ProfileNode> append(ProfileNode node) {
-
+    public void append(ProfileNode node) {
         log(node.getClass());
-        return Optional.empty();
     }
 
     @Override
