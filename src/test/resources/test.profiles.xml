@@ -2,15 +2,24 @@
 <profiles>
     <profile name="tv shows">
         <shows>
-            <show>The Big Bang Theory</show>
-            <show>The Mentalist</show>
+            <show name="The Big Bang Theory" />
+            <show name="The Mentalist" />
         </shows>
     </profile>
 
     <profile name="anime">
         <shows>
-            <show>Log Horizon</show>
-            <show>Another</show>
+            <show name="Log Horizon">
+                <begin>1</begin>
+                <type>seq</type> <!-- seq,ep,free -->
+                <subtitle>english</subtitle>
+                <group>HS</group>
+            </show>
+            <show name="Another" />
         </shows>
+        <!-- exclude patterns -->
+        <!-- qualities -->
+        <!-- move-folder -->
+        <!-- url -->
     </profile>
 </profiles>

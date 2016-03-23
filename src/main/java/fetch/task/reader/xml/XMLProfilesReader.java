@@ -76,9 +76,13 @@ public class XMLProfilesReader extends DefaultHandler implements ProfilesReader 
     public void endElement(String uri, String localName, String qName)
             throws SAXException {
 
-        if (!nodes.isEmpty()) {
+        if (!nodes.isEmpty() && isType(qName, nodes.peek())) {
             ProfileNode node = nodes.pop();
             node.setValue(value.toString());
         }
+    }
+
+    private boolean isType(String qName, ProfileNode node) {
+        return qName.equalsIgnoreCase(node.getClass().getSimpleName());
     }
 }

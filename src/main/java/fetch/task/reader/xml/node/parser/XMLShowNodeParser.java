@@ -26,6 +26,7 @@ public class XMLShowNodeParser implements XMLNodeParser {
         }
 
         Show show = new Show();
+        show.setName(attributes.getValue("name"));
 
         ProfileNode node = previous.get();
         node.append(show);

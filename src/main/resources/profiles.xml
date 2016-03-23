@@ -2,15 +2,15 @@
 <profiles>
     <profile name="tv shows">
         <shows>
-            <show>The Big Bang Theory</show>
-            <show>The Mentalist</show>
+            <show name="The Big Bang Theory" />
+            <show name="The Mentalist" />
         </shows>
     </profile>
 
     <profile name="anime">
         <shows>
-            <show>Log Horizon</show>
-            <show>Another</show>
+            <show name="Log Horizon" />
+            <show name="Another" />
         </shows>
     </profile>
 </profiles>

@@ -11,9 +11,4 @@ public class Show extends AbstractNode {
         this.name = name;
     }
 
-    @Override
-    public void setValue(String value) {
-        setName(value);
-    }
-
 }
