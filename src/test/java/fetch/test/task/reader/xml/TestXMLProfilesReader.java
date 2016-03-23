@@ -1,9 +1,12 @@
 package fetch.test.task.reader.xml;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import fetch.conf.Configuration;
@@ -15,30 +18,33 @@ import fetch.task.reader.xml.XMLProfilesReader;
 
 public class TestXMLProfilesReader {
 
-    private List<Profile> getProfiles() throws ConfigurationException {
-        return getProfiles(Configuration.getInstance().getMap().getProfilesFile());
-    }
+    private List<Profile> profiles;
+    private Profile tvShowsProfile;
+    private Profile animeProfile;
 
-    private List<Profile> getProfiles(String filename) throws ConfigurationException {
+    private List<Profile> getProfiles() throws ConfigurationException {
+        String filename = Configuration.getInstance().getMap().getProfilesFile();
         ProfilesReader profileReader = new XMLProfilesReader();
         return profileReader.getProfiles(filename);
     }
 
+    @Before
+    public void init() throws ConfigurationException {
+        profiles = getProfiles();
+
+        assertEquals("There should be 2 profiles", 2, profiles.size());
+        tvShowsProfile = profiles.get(0);
+        animeProfile = profiles.get(1);
+    }
+
     @Test
-    public void testFindAllProfiles() throws ConfigurationException {
-        List<Profile> profiles = getProfiles();
-        assertEquals(2, profiles.size());
-
-        Profile tvShowsProfile = profiles.get(0);
-        Profile animeProfile = profiles.get(1);
-
+    public void testFindCorrectProfiles() throws ConfigurationException {
         assertEquals("tv shows", tvShowsProfile.getName());
         assertEquals("anime", animeProfile.getName());
     }
 
     @Test
     public void testReadCorrectTvShows() throws ConfigurationException {
-        Profile tvShowsProfile = getProfiles().get(0);
         List<Show> tvShows = tvShowsProfile.getShows();
 
         assertEquals(2, tvShows.size());
@@ -52,7 +58,6 @@ public class TestXMLProfilesReader {
 
     @Test
     public void testReadCorrectAnime() throws ConfigurationException {
-        Profile animeProfile = getProfiles().get(1);
         List<Show> anime = animeProfile.getShows();
 
         assertEquals(2, anime.size());
@@ -62,5 +67,17 @@ public class TestXMLProfilesReader {
 
         assertEquals(animeProfile, anime.get(0).getParent());
         assertEquals(animeProfile, anime.get(1).getParent());
+    }
+
+    @Test
+    public void testReadCorrectBegin() {
+        Show logHorizon = animeProfile.getShows().get(0);
+        assertTrue("Log Horizon tv show should have a begin",
+                logHorizon.getBegin().isPresent());
+        assertEquals("1", logHorizon.getBegin().get());
+
+        Show another = animeProfile.getShows().get(1);
+        assertFalse("Another tv show should not have a begin",
+                another.getBegin().isPresent());
     }
 }

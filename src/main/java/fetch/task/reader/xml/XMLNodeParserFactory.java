@@ -1,5 +1,6 @@
 package fetch.task.reader.xml;
 
+import fetch.task.reader.xml.node.parser.XMLBeginNodeParser;
 import fetch.task.reader.xml.node.parser.XMLGenericNodeParser;
 import fetch.task.reader.xml.node.parser.XMLNodeParser;
 import fetch.task.reader.xml.node.parser.XMLProfileNodeParser;
@@ -14,6 +15,8 @@ public class XMLNodeParserFactory {
                 return new XMLProfileNodeParser();
             case "show":
                 return new XMLShowNodeParser();
+            case "begin":
+                return new XMLBeginNodeParser();
             default:
                 return new XMLGenericNodeParser();
         }

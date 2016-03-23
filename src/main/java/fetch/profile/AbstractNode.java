@@ -36,6 +36,13 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     @Override
+    public Optional<Begin> append(Begin begin) {
+
+        log(Begin.class);
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<ProfileNode> append(ProfileNode node) {
 
         log(node.getClass());
