@@ -44,15 +44,23 @@ public interface ProfileNode {
     /**
      * Appends the {@code begin} node to this node and returns it
      *
-     * @param show
+     * @param begin
      * @return Optional of {@code begin} if {@code begin} was appended.
      */
     Optional<Begin> append(Begin begin);
 
     /**
+     * Appends the {@code subtitles} node to this node and returns it
+     *
+     * @param subtitles
+     * @return Optional of {@code subtitles} if {@code subtitles} was appended.
+     */
+    Optional<Subtitles> append(Subtitles subtitles);
+
+    /**
      * Appends the {@code node} to this node and returns it
      *
-     * @param show
+     * @param node
      * @return Optional of {@code node} if {@code node} was appended.
      */
     Optional<ProfileNode> append(ProfileNode node);

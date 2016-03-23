@@ -43,6 +43,13 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     @Override
+    public Optional<Subtitles> append(Subtitles subtitles) {
+
+        log(Subtitles.class);
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<ProfileNode> append(ProfileNode node) {
 
         log(node.getClass());

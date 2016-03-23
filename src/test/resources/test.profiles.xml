@@ -11,8 +11,8 @@
         <shows>
             <show name="Log Horizon">
                 <begin>1</begin>
-                <type>seq</type> <!-- seq,ep,free -->
-                <subtitle>english</subtitle>
+                <idtype>seq</idtype> <!--identified_by seq,ep,free -->
+                <subtitles>english</subtitles>
                 <group>HS</group>
             </show>
             <show name="Another" />

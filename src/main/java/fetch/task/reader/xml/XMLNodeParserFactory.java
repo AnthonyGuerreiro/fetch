@@ -6,6 +6,7 @@ import fetch.task.reader.xml.node.parser.XMLGenericNodeParser;
 import fetch.task.reader.xml.node.parser.XMLNodeParser;
 import fetch.task.reader.xml.node.parser.XMLProfileNodeParser;
 import fetch.task.reader.xml.node.parser.XMLShowNodeParser;
+import fetch.task.reader.xml.node.parser.XMLSubtitlesNodeParser;
 
 public class XMLNodeParserFactory {
 
@@ -18,6 +19,8 @@ public class XMLNodeParserFactory {
                 return new XMLShowNodeParser();
             case "begin":
                 return new XMLBeginNodeParser();
+            case "subtitles":
+                return new XMLSubtitlesNodeParser();
             default:
                 return new XMLGenericNodeParser();
         }

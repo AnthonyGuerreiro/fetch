@@ -80,4 +80,16 @@ public class TestXMLProfilesReader {
         assertFalse("Another tv show should not have a begin",
                 another.getBegin().isPresent());
     }
+
+    @Test
+    public void testReadCorrectSubtitles() {
+        Show logHorizon = animeProfile.getShows().get(0);
+        assertTrue("Log Horizon tv show should have subtitles",
+                logHorizon.getSubtitles().isPresent());
+        assertEquals("english", logHorizon.getSubtitles().get());
+
+        Show another = animeProfile.getShows().get(1);
+        assertFalse("Another tv show should not have subtitles",
+                another.getSubtitles().isPresent());
+    }
 }
