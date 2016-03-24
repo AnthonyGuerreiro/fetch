@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import fetch.plugin.PluginLoader;
 import fetch.profile.Profile;
+import fetch.profile.Show;
 import fetch.task.Task;
 import fetch.task.searcher.Entry;
 
@@ -21,6 +22,13 @@ public class AbstractTest {
         Profile profile = new Profile();
         profile.setName(name);
         return profile;
+    }
+
+    protected Show getShow(String name, Profile parent) {
+        Show show = new Show();
+        show.setName(name);
+        show.setParent(parent);
+        return show;
     }
 
     protected Entry getEntry(String value) {
