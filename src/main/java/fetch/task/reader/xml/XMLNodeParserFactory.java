@@ -3,6 +3,7 @@ package fetch.task.reader.xml;
 import fetch.profile.ProfileNode;
 import fetch.task.reader.xml.node.parser.XMLBeginNodeParser;
 import fetch.task.reader.xml.node.parser.XMLGenericNodeParser;
+import fetch.task.reader.xml.node.parser.XMLGroupNodeParser;
 import fetch.task.reader.xml.node.parser.XMLNodeParser;
 import fetch.task.reader.xml.node.parser.XMLProfileNodeParser;
 import fetch.task.reader.xml.node.parser.XMLShowNodeParser;
@@ -21,6 +22,8 @@ public class XMLNodeParserFactory {
                 return new XMLBeginNodeParser();
             case "subtitles":
                 return new XMLSubtitlesNodeParser();
+            case "group":
+                return new XMLGroupNodeParser();
             default:
                 return new XMLGenericNodeParser();
         }

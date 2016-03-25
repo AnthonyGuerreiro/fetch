@@ -92,4 +92,16 @@ public class TestXMLProfilesReader {
         assertFalse("Another tv show should not have subtitles",
                 another.getSubtitles().isPresent());
     }
+
+    @Test
+    public void testReadCorrectGroup() {
+        Show logHorizon = animeProfile.getShows().get(0);
+        assertTrue("Log Horizon tv show should have group",
+                logHorizon.getGroup().isPresent());
+        assertEquals("HS", logHorizon.getGroup().get());
+
+        Show another = animeProfile.getShows().get(1);
+        assertFalse("Another tv show should not have group",
+                another.getGroup().isPresent());
+    }
 }

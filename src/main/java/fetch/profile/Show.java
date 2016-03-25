@@ -7,6 +7,7 @@ public class Show extends AbstractNode {
     private String name;
     private Begin begin = new Begin();
     private Subtitles subtitles = new Subtitles();
+    private Group group = new Group();
 
     public String getName() {
         return name;
@@ -26,11 +27,20 @@ public class Show extends AbstractNode {
         this.subtitles = subtitles;
     }
 
+    @Override
+    public void append(Group group) {
+        this.group = group;
+    }
+
     public Optional<String> getBegin() {
         return Optional.ofNullable(begin.getValue());
     }
 
     public Optional<String> getSubtitles() {
         return Optional.ofNullable(subtitles.getValue());
+    }
+
+    public Optional<String> getGroup() {
+        return Optional.ofNullable(group.getValue());
     }
 }

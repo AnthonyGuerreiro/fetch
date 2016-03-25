@@ -40,6 +40,11 @@ public abstract class AbstractNode implements ProfileNode {
     }
 
     @Override
+    public void append(Group group) {
+        log(Group.class);
+    }
+
+    @Override
     public void append(ProfileNode node) {
         log(node.getClass());
     }

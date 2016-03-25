@@ -52,9 +52,17 @@ public interface ProfileNode {
     void append(Subtitles subtitles);
 
     /**
+     * Appends the {@code group} node to this node and returns it
+     *
+     * @param group
+     */
+    void append(Group group);
+
+    /**
      * Appends the {@code node} to this node and returns it
      *
      * @param node
      */
     void append(ProfileNode node);
+
 }
