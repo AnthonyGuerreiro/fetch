@@ -44,7 +44,7 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
         }
 
         // TODO get url from config
-        String template = "http://www.torrentz.com/search?q=";
+        String template = "http://www.torrentz.com/feed?q=?";
         for (Crawler crawler : crawlers) {
             for (Show show : shows) {
                 try {
@@ -52,7 +52,7 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
                     List<Entry> entries = crawler.getEntries(url);
                     this.entries.put(show, entries);
                 } catch (FetchException e) {
-                    // exception already logged in crawler
+                    logger.error(e);
                 }
             }
         }
