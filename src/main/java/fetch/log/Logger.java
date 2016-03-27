@@ -21,7 +21,7 @@ public class Logger {
     }
 
     public void trace(Exception e) {
-        logger.trace(e);
+        logger.trace("", e);
     }
 
     public void trace(Exception e, String msg, Object... args) {
@@ -33,7 +33,7 @@ public class Logger {
     }
 
     public void debug(Exception e) {
-        logger.debug(e);
+        logger.debug("", e);
     }
 
     public void debug(Exception e, String msg, Object... args) {
@@ -45,7 +45,7 @@ public class Logger {
     }
 
     public void info(Exception e) {
-        logger.info(e);
+        logger.info("", e);
     }
 
     public void info(Exception e, String msg, Object... args) {
@@ -57,7 +57,7 @@ public class Logger {
     }
 
     public void warn(Exception e) {
-        logger.warn(e);
+        logger.warn("", e);
     }
 
     public void warn(Exception e, String msg, Object... args) {
@@ -69,7 +69,7 @@ public class Logger {
     }
 
     public void error(Exception e) {
-        logger.error(e);
+        logger.error("", e);
     }
 
     public void error(Exception e, String msg, Object... args) {
@@ -81,7 +81,7 @@ public class Logger {
     }
 
     public void fatal(Exception e) {
-        logger.fatal(e);
+        logger.fatal("", e);
     }
 
     public void fatal(Exception e, String msg, Object... args) {
