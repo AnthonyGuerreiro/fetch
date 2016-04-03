@@ -2,6 +2,8 @@ package fetch.task.download.rpc;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import fetch.conf.Configuration;
 import fetch.conf.ConfigurationMap;
 import fetch.exception.DownloadManagerException;
@@ -11,6 +13,7 @@ import fetch.task.download.BitTorrentClient;
 import fetch.task.download.DownloadManager;
 import fetch.task.download.TorrentInfo;
 
+@Component
 public class TransmissionManager implements DownloadManager {
 
     private final static Logger logger = LogManager.getLogger(TransmissionManager.class);

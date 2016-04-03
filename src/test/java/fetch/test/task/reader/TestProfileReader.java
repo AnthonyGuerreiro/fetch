@@ -1,7 +1,12 @@
 package fetch.test.task.reader;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Optional;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import fetch.exception.ConfigurationException;
@@ -11,9 +16,16 @@ import fetch.test.AbstractTest;
 
 public class TestProfileReader extends AbstractTest {
 
+    @Before
+    public void init() {
+        Optional<Reader> reader = getTask(Reader.class);
+        assertTrue(reader.isPresent());
+    }
+
     @Test
     public void testLoadProfileReader() throws ConfigurationException {
-        new Reader().getProfilesReader();
+        Reader reader = getTask(Reader.class).get();
+        assertNotNull(reader.getProfilesReader());
     }
 
     @Test

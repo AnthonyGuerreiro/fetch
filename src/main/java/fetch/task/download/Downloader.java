@@ -1,15 +1,25 @@
 package fetch.task.download;
 
-import fetch.annotation.TestMethod;
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Component;
+
 import fetch.exception.ConfigurationException;
 import fetch.log.LogManager;
 import fetch.log.Logger;
-import fetch.plugin.PluginLoader;
 import fetch.task.Task;
 
+@Component
 public class Downloader implements Task {
 
     private final static Logger logger = LogManager.getLogger(Downloader.class);
+
+    private DownloadManager downloadManager;
+
+    @Inject
+    public Downloader(DownloadManager downloadManager) {
+        this.downloadManager = downloadManager;
+    }
 
     @Override
     public void execute() throws ConfigurationException {
@@ -17,20 +27,19 @@ public class Downloader implements Task {
         DownloadManager downloader = getDownloader();
     }
 
-    @TestMethod
-    public DownloadManager getDownloader() throws ConfigurationException {
-        return PluginLoader.getInstance().getPlugin(DownloadManager.class);
-    }
-
-    @Override
-    public int getOrder() {
-        return 500;
+    public DownloadManager getDownloader() {
+        return downloadManager;
     }
 
     @Override
     public void onFinish() {
         logger.info("tk.finish.task", getClass().getSimpleName());
         // TODO implement
+    }
+
+    @Override
+    public int getOrder() {
+        return 500;
     }
 
 }

@@ -12,6 +12,8 @@
         <simmetrics.version>4.1.0</simmetrics.version>
         <transmission.rpc.version>0.5.0</transmission.rpc.version>
         <log4j.version>2.5</log4j.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <javax.inject.version>1</javax.inject.version>
 
         <!-- Also used by transmission-rpc-java -->
         <jackson.version>2.2.3</jackson.version>
@@ -69,6 +71,29 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>${javax.inject.version}</version>
+        </dependency>
+
     </dependencies>
     <repositories>
         <repository>

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import fetch.annotation.TestMethod;
 import fetch.event.ShowsSearchedEvent;
 import fetch.event.handler.ShowsSearchedEventHandler;
@@ -16,6 +18,7 @@ import fetch.profile.Show;
 import fetch.task.Task;
 import fetch.task.searcher.Entry;
 
+@Component
 public class EpisodeSplitter implements Task, ShowsSearchedEventHandler {
 
     private final static Logger logger = LogManager.getLogger(EpisodeSplitter.class);

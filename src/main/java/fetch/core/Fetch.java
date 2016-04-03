@@ -17,7 +17,7 @@ public class Fetch {
     }
 
     private List<Task> getTasks() {
-        return PluginLoader.getInstance().getPlugins(Task.class);
+        return PluginLoader.getInstance().getTasks();
     }
 
     private void start(String[] args) throws ConfigurationException {

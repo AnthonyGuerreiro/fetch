@@ -1,7 +1,7 @@
 package fetch.plugin;
 
 @FunctionalInterface
-public interface HasOrder extends Plugin {
+public interface HasOrder {
 
     /**
      * Returns order. <br />

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
 import fetch.annotation.TestMethod;
 import fetch.event.ProfilesReadEvent;
 import fetch.event.ShowsSearchedEvent;
@@ -20,6 +22,7 @@ import fetch.profile.Profile;
 import fetch.profile.Show;
 import fetch.task.Task;
 
+@Component
 public class ShowSearcher implements Task, ProfilesReadEventHandler {
 
     private final static Logger logger = LogManager.getLogger(ShowSearcher.class);
@@ -79,11 +82,6 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
     }
 
     @Override
-    public int getOrder() {
-        return 200;
-    }
-
-    @Override
     public void handle(ProfilesReadEvent event) {
         profiles = event.getProfiles();
     }
@@ -92,6 +90,11 @@ public class ShowSearcher implements Task, ProfilesReadEventHandler {
     public void onFinish() {
         logger.info("tk.finish.task", getClass().getSimpleName());
         EventDispatcher.getInstance().dispatch((new ShowsSearchedEvent(entries)));
+    }
+
+    @Override
+    public int getOrder() {
+        return 200;
     }
 
 }

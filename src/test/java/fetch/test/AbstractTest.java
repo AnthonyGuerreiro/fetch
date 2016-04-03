@@ -13,7 +13,7 @@ public class AbstractTest {
 
     protected <T extends Task> Optional<T> getTask(Class<T> klass) {
 
-        List<Task> tasks = PluginLoader.getInstance().getPlugins(Task.class);
+        List<Task> tasks = PluginLoader.getInstance().getTasks();
         return tasks.stream().filter(task -> task.getClass().equals(klass))
                 .map(task -> (T) task).findFirst();
     }

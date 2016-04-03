@@ -32,7 +32,7 @@ public class EventDispatcher {
                     event.getClass());
 
             List<? extends EventHandler> handlers = PluginLoader.getInstance()
-                    .getPlugins(handlerType, false);
+                    .getPlugins(handlerType);
 
             if (handlers.isEmpty()) {
                 logger.info("ev.handler.not.found", eventType, handlerType);

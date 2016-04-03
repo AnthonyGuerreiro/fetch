@@ -11,6 +11,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.springframework.stereotype.Component;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -22,6 +23,7 @@ import fetch.profile.ProfileNode;
 import fetch.task.reader.ProfilesReader;
 import fetch.task.reader.xml.node.parser.XMLNodeParser;
 
+@Component
 public class XMLProfilesReader extends DefaultHandler implements ProfilesReader {
 
     public final static String PROFILE_NAME_ATTR = "name";

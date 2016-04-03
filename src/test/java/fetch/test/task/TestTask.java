@@ -14,11 +14,12 @@ import fetch.task.filter.ShowFilter;
 import fetch.task.reader.Reader;
 import fetch.task.searcher.ShowSearcher;
 import fetch.task.splitter.EpisodeSplitter;
+import fetch.test.AbstractTest;
 
-public class TestTask {
+public class TestTask extends AbstractTest {
 
     private List<Task> getTasks() {
-        return PluginLoader.getInstance().getPlugins(Task.class);
+        return PluginLoader.getInstance().getTasks();
     }
 
     @Test

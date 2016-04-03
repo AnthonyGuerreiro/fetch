@@ -2,13 +2,10 @@ package fetch.task.download;
 
 import java.util.List;
 
-import fetch.annotation.Indexable;
 import fetch.exception.DownloadManagerException;
 import fetch.exception.FetchException;
-import fetch.plugin.Plugin;
 
-@Indexable(isSingleInstance = true)
-public interface DownloadManager extends Plugin {
+public interface DownloadManager {
     /**
      * Adds the {@code magnetLink} to Transmission and starts the download.
      * <br />

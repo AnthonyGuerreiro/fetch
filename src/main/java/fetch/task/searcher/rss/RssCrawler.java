@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.FeedException;
@@ -20,6 +22,7 @@ import fetch.message.Messages;
 import fetch.task.searcher.Crawler;
 import fetch.task.searcher.Entry;
 
+@Component
 public class RssCrawler implements Crawler {
 
     private static final Logger logger = LogManager.getLogger(RssCrawler.class);

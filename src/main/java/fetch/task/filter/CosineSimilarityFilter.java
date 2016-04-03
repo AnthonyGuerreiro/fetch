@@ -10,6 +10,7 @@ import org.simmetrics.StringMetric;
 import org.simmetrics.metrics.CosineSimilarity;
 import org.simmetrics.simplifiers.Simplifiers;
 import org.simmetrics.tokenizers.Tokenizers;
+import org.springframework.stereotype.Component;
 
 import fetch.profile.Show;
 import fetch.task.searcher.Entry;
@@ -20,6 +21,7 @@ import fetch.task.searcher.Entry;
  * chooses only one per episode based on the Cosine Similarity algorithm.
  *
  */
+@Component
 public class CosineSimilarityFilter implements Filter {
 
     @Override
@@ -39,11 +41,6 @@ public class CosineSimilarityFilter implements Filter {
         return max;
     }
 
-    @Override
-    public int getOrder() {
-        return 200;
-    }
-
     private float getCosineSimilarity(String searched, String actual) {
 
         StringMetric metric = with(new CosineSimilarity<String>())
@@ -52,6 +49,11 @@ public class CosineSimilarityFilter implements Filter {
                 .build();
 
         return metric.compare(searched, actual);
+    }
+
+    @Override
+    public int getOrder() {
+        return 100;
     }
 
 }
